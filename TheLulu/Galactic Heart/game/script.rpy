@@ -4,7 +4,8 @@
 # name of the character.
 
 define e = Character("Eileen")
-
+image planetA ="planetA.jpg"
+image planetB ="planetB.jpg"
 
 # The game starts here.
 
@@ -14,7 +15,11 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene planetA at truecenter
+    with dissolve
+
+    
+
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -24,9 +29,13 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    e "Ok got it"
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
+
+    
+
+
 
     # This ends the game.
 
