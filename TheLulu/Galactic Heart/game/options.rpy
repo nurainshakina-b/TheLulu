@@ -12,6 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
+
 define config.name = _("Galactic Heart")
 
 
