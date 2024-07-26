@@ -29,9 +29,17 @@ label start:
 
     # These display lines of dialogue.
 
-    e "Ok got it"
+    e "Start"
 
-    e "Galatic Heart"
+
+    e "You are needed for a mission. 
+    To go undercover and infiltrate the military 
+    Find information and signal to Command Base to start the siege
+    Retrieve Agent M"
+
+    show testing
+
+    e "“Is that my bed?”"
 
     
 
