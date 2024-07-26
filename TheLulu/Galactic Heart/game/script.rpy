@@ -31,7 +31,7 @@ label start:
 
     e "Ok got it"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "Galatic Heart"
 
     
 
