@@ -32,10 +32,15 @@ label start:
     e "Start"
 
 
-    e "You are needed for a mission. 
-    To go undercover and infiltrate the military 
-    Find information and signal to Command Base to start the siege
-    Retrieve Agent M"
+    e "Several light years have passed, life at Gaiarise has not been the same without you. "
+
+
+    e "After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Galarise had set forth for a mission."
+    e "To infiltrate and find our information on them, sending their top agent - Agent Izek. But something went wrong, all communication was lost and he  never returned back. Many looked up to him and hoped he would return . "
+    e "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
+    e "And lastly find Izek."
+
+    hide eileen happy
 
     show testing
 
