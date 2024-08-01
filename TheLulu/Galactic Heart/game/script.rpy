@@ -10,8 +10,8 @@ define izek = Character("Izek")
 define zander = Character("Zander")
 define self = Character("Me")
 
-image planetA ="planetA.jpg"
-image planetB ="planetB.jpg"
+image planetA ="bg_planetA_blur.png"
+image planetB ="bg_planetB_blur.png"
 image bunk ="bg_bunk_rm"
 
 # The game starts here.
@@ -105,7 +105,11 @@ menu:
 
                                                     "Bribe him":
                                                         show brandon_neutral
-                                                        Brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
+                                                        brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
+                                                        narrator "You escaped  but you have to constantly bribe him"
+                                                        hide brandon_neutral
+                                                        jump choice2_no
+
 
 
                                             "Erase Coordinates":
