@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 15: expected 'image_name_component' not found.
-    image = "planetA.jpg"
-          ^
+File "game/script.rpy", line 74: menu statement expects a non-empty block.
+    menu: 
+        ^
+
+File "game/script.rpy", line 76: expected statement.
+    "Sabotage":
+              ^
+
+File "game/script.rpy", line 84: expected statement.
+    "Ignore":
+            ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Jul 25 00:20:03 2024
+Thu Aug  1 19:46:16 2024

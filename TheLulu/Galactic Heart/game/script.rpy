@@ -12,6 +12,7 @@ define self = Character("Me")
 
 image planetA ="planetA.jpg"
 image planetB ="planetB.jpg"
+image bunk ="bg_bunk_rm"
 
 # The game starts here.
 
@@ -48,23 +49,64 @@ label start:
 
     hide eileen happy
 
+scene bunk at truecenter
 menu:
-    "What should I do"
+    self "What should I do"
     "Make friends":
         jump choice1_yes
         label choice1_yes:
             $ menu_flag = True
             self "So, what is your name"
-            Zander "Zander"
+            show zander_neutral
+            zander "Zander"
+            hide zander_neutral
             jump choice1_done
             label choice1_done:
+            narrator "Let's explore the area"
+            menu: 
+                "Finds Meeting Room":
+                    jump choice2_yes
+                    label choice2_yes:
+                        $ menu_flag = True
+                        menu: 
+                            narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
+                            "Sabotage":
+                                jump choice21_yes
+                                label choice21_yes:
+                                    $ menu_flag = True
+                                    self "“i got to do something about this hmmm..”"
+                                    jump choice21_done
+                                    label choice21_done:
+
+                            "Ignore":
+                                jump choice22_yes
+                                label choice22_yes:
+                                    $ menu_flag = False
+                                    self "“ Its too risky to sabotage the plans now..”"
+                                    jump choice22_done
+                                    label choice22_done:
+                        jump choice2_done
+                        label choice2_done:
+                            
+
+                "Finds Training Room":
+                    jump choice2_no
+                    label choice2_no:
+                        $ menu_flag = False
+                        narrator "The Training. Start of Act 2 (Path 2)"
+                        narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
+                        narrator"As your training begins, you'll face decisions about whether to manipulate others or build alliances. You'll meet Jay, the weakest link in the group, and might rely on your roommate, Zander, to progress. Alternatively, you can try to succeed on your own. But is that the best choice?"
+                        jump choice2_done
+
 
     "Ignore him":
         jump choice1_no
         label choice1_no:
             $ menu_flag = False
             self "Is that my bed"
+            show zander_neutral
             zander "Yes"
+            narrator "Zander introduces and explain the facilities"
             jump choice1_done
             "good job"
 
