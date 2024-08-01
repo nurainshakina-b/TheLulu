@@ -2,17 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 74: menu statement expects a non-empty block.
-    menu: 
-        ^
-
-File "game/script.rpy", line 76: expected statement.
-    "Sabotage":
-              ^
-
-File "game/script.rpy", line 84: expected statement.
-    "Ignore":
-            ^
+File "game/script.rpy", line 120: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Aug  1 19:46:16 2024
+Thu Aug  1 20:37:41 2024

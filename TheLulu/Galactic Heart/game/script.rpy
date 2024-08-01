@@ -41,7 +41,6 @@ label start:
 
     narrator "Several light years have passed, life at Gaiarise has not been the same without you. "
 
-
     narrator "After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Galarise had set forth for a mission."
     narrator "To infiltrate and find our information on them, sending their top agent - Agent Izek. But something went wrong, all communication was lost and he  never returned back. Many looked up to him and hoped he would return . "
     narrator "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
@@ -74,21 +73,63 @@ menu:
                                 jump choice21_yes
                                 label choice21_yes:
                                     $ menu_flag = True
-                                    self "“i got to do something about this hmmm..”"
+                                    self "I got to do something about this hmmm.."
                                     jump choice21_done
                                     label choice21_done:
+                                        menu:
+                                            "Steal Documents":
+                                                jump choice211_yes
+                                                label choice211_yes:
+                                                $ menu_flag = True
+                                                self "I need to send this back to the main base.."
+                                                narrator "Get caught by higher personnel and is suspicious of you"
+                                                
+                                                menu:
+                                                    "Seduce him":
+                                                        jump choice2111_yes
+                                                        label choice2111_yes:
+                                                        show brandon_neutral
+                                                        brandon "I have a wife and 2 kids. I know i look like this but I am loyal to them"
+                                                        self "dammit.."
+                                                        narrator "You were being brought to the cell"
+                                                        hide brandon_neutral
+                                                        show bg_jail
+                                                        jump choice2111_done
+                                                        label choice2111_done:
+
+                                                            narrator "The Questioning"
+                                                            narrator "Start of Act 2 (Path 1)"
+
+                                                            narrator "Can you get out of it?  "
+                                                            narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
+
+                                                    "Bribe him":
+                                                        show brandon_neutral
+                                                        Brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
+
+
+                                            "Erase Coordinates":
+                                                jump choice221_no
+                                                label choice221_no:
+                                                $ menu_flag = False
+                                                self "I can erase these coordinates.."
+                                                narrator "Get caught by higher personnel and is NOT suspicious of you"
+                                                jump choice221_done
+                                                label choice221_done:
+                            
 
                             "Ignore":
                                 jump choice22_yes
                                 label choice22_yes:
                                     $ menu_flag = False
-                                    self "“ Its too risky to sabotage the plans now..”"
+                                    self "Its too risky to sabotage the plans now.."
+                                    narrator "You weren't caught"
                                     jump choice22_done
                                     label choice22_done:
+
                         jump choice2_done
                         label choice2_done:
                             
-
                 "Finds Training Room":
                     jump choice2_no
                     label choice2_no:
