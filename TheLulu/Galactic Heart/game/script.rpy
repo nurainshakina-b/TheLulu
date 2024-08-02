@@ -143,8 +143,7 @@ menu:
                                                                                     izek "Wait.. i do"
                                                                                     narrator "Calls her into the office under the disguise sharing information of the mission."
                                                                                     izek "Send her in... I’ll run through the details of the mission myself.."
-                                                                                    jump choice21_done
-                                                                                    label choice21_done:
+                                                                                    jump choice22_done
                                                                                         
                                                                             "Tell them he is your lover. Demand them to tell if he is alive or dead":
                                                                                 jump choice21_no
@@ -154,7 +153,7 @@ menu:
                                                                                     narrator "They alert the top guy (Izek) about the situation and sends her back to the cell."
                                                                                     narrator "Izek receives the report regarding you. Confuse and intrigued with her claims."
                                                                                     narrator "Izek goes down to the cell, about to confront you."
-                                                                                    jump choice21_done
+                                                                                    jump choice22_done
                                                                                     
                                                                     jump choice2_done
 
