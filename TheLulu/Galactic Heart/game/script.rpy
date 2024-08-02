@@ -66,39 +66,39 @@ menu:
             narrator "Let's explore the area"
             menu: 
                 "Finds Meeting Room":
-                    jump choice2_yes
-                    label choice2_yes:
+                    jump choice12_yes
+                    label choice12_yes:
                         $ menu_flag = True
                         menu: 
                             narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
                             "Sabotage":
-                                jump choice21_yes
-                                label choice21_yes:
+                                jump choice13_yes
+                                label choice13_yes:
                                     $ menu_flag = True
                                     self "I got to do something about this hmmm.."
-                                    jump choice21_done
-                                    label choice21_done:
+                                jump choice13_done
+                                label choice13_done:
                                         menu:
                                             "Steal Documents":
-                                                jump choice211_yes
-                                                label choice211_yes:
+                                                jump choice14_yes
+                                                label choice14_yes:
                                                 $ menu_flag = True
                                                 self "I need to send this back to the main base.."
                                                 narrator "Get caught by higher personnel and is suspicious of you"
                                                 
                                                 menu:
                                                     "Seduce him":
-                                                        jump choice2111_yes
-                                                        label choice2111_yes:
+                                                        jump choice15_yes
+                                                        label choice15_yes:
                                                         hide zander_neutral
                                                         show brandon_neutral
                                                         brandon "I have a wife and 2 kids. I know i look like this but I am loyal to them"
-                                                        self "dammit.."
+                                                        self "Dammit.."
                                                         narrator "You were being brought to the cell"
                                                         hide brandon_neutral
                                                         show bg_jail
-                                                        jump choice2111_done
-                                                        label choice2111_done:
+                                                        jump choice15_done
+                                                        label choice15_done:
 
                                                             narrator "The Questioning"
                                                             narrator "Start of Act 2 (Path 1)"
@@ -107,8 +107,8 @@ menu:
                                                             narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
                                                             menu:
                                                                 "Knowing that you got caught, you decide to use this opportunity to find out about Izek. Manipulate information out of them":
-                                                                    jump choice3_yes
-                                                                    label choice3_yes:
+                                                                    jump choice2_yes
+                                                                    label choice2_yes:
                                                                         show brandon_neutral
                                                                         brandon "Are you not going to talk?"
                                                                         narrator " Interrogators are intrigued and start revealing information about Ian (Agent Izek’s undercover name)"
@@ -118,8 +118,8 @@ menu:
                                                                             "How did you know him? Who are you to him?"
 
                                                                             "Tell a semi -lie and that say he is a friend you’ve been searching for.":
-                                                                                jump choice31_yes
-                                                                                label choice31_yes:
+                                                                                jump choice21_yes
+                                                                                label choice21_yes:
                                                                                     show brandon_neutral
                                                                                     brandon "We are close friends back in the orphanage and I came to find him"
                                                                                     narrator "Interrogators are intrigued and devise a plan to use you for further operations."
@@ -139,48 +139,47 @@ menu:
                                                                                     izek "Wait.. i do"
                                                                                     narrator "Calls her into the office under the disguise sharing information of the mission."
                                                                                     izek "Send her in... I’ll run through the details of the mission myself.."
-                                                                                    jump choice31_done
-                                                                                    label choice31_done:
+                                                                                    jump choice21_done
+                                                                                    label choice21_done:
                                                                                         
                                                                             "Tell them he is your lover. Demand them to tell if he is alive or dead":
-                                                                                jump choice31_no
-                                                                                label choice31_no:
+                                                                                jump choice21_no
+                                                                                label choice21_no:
                                                                                     brandon "We are romantically involved !"
                                                                                     narrator "They stop questioning and look anxious to continue. You receive leniency and it gave you more time to plan."
                                                                                     narrator "They alert the top guy (Izek) about the situation and sends her back to the cell."
                                                                                     narrator "Izek receives the report regarding you. Confuse and intrigued with her claims."
                                                                                     narrator "Izek goes down to the cell, about to confront you."
-                                                                                    jump choice31_done
+                                                                                    jump choice21_done
                                                                                     
-                                                                    jump choice3_done
+                                                                    jump choice2_done
 
 
                                                                 "You can still escape this if you play your cards right. Lie and act clueless":
-                                                                    jump choice3_no
-                                                                    label choice3_no:
+                                                                    jump choice2_no
+                                                                    label choice2_no:
                                                                         narrator "Interrogators become suspicious but have no concrete evidence."
                                                                         menu: 
                                                                             "Show further confusion":
-                                                                                jump choice32_yes
-                                                                                label choice32_yes:
+                                                                                jump choice212_yes
+                                                                                label choice212_yes:
                                                                                     narrator "I don’t understand.. How are they important? Can you explain"
                                                                                     narrator "Interrogators explains, giving you time to gather information."
                                                                                     narrator "Feign ignorance and escape"
                                                                                     narrator "I’m sorry, I didn’t know. I’ll be more careful. I thought i was just doing the right thing.."
                                                                                     narrator "We will let you off for now. Let this be a warning."
                                                                                     narrator "You are let off with a warning but you are also underestimated"
-                                                                                jump choice2_no
-                                                                                label choice32_done:
+                                                                                jump choice12_no
+                                                                                label choice212_done:
 
                                                                             "Deflect Questions":
-                                                                                jump choice32_no
-                                                                                label choice32_no:
+                                                                                jump choice212_no
+                                                                                label choice212_no:
                                                                                     narrator "I thought I was just doing my job.. I was just following orders. Can I go now?"
                                                                                     narrator "You are released but will be closely monitored."
-                                                                                jump choice2_no
+                                                                                jump choice12_no
 
-                                                                    jump choice3_done
-                                                                    label choice3_done:
+                                                                    jump choice2_done
 
                                                     "Bribe him":
                                                         hide zander_neutral
@@ -193,30 +192,29 @@ menu:
 
 
                                             "Erase Coordinates":
-                                                jump choice221_no
-                                                label choice221_no:
+                                                jump choice14_no
+                                                label choice14_no:
                                                 $ menu_flag = False
                                                 self "I can erase these coordinates.."
                                                 narrator "Get caught by higher personnel and is NOT suspicious of you"
-                                                jump choice221_done
-                                                label choice221_done:
+                                                jump choice14_done
+                                                label choice14_done:
                             
 
                             "Ignore":
-                                jump choice22_yes
-                                label choice22_yes:
+                                jump choice13_no
+                                label choice13_no:
                                     $ menu_flag = False
                                     self "Its too risky to sabotage the plans now.."
                                     narrator "You weren't caught"
-                                    jump choice2_no
-                                    label choice22_done:
+                                    jump choice12_no
 
                         jump choice2_done
                         label choice2_done:
                             
                 "Finds Training Room":
-                    jump choice2_no
-                    label choice2_no:
+                    jump choice12_no
+                    label choice12_no:
                         $ menu_flag = False
                         narrator "The Training. Start of Act 2 (Path 2)"
                         narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
@@ -232,6 +230,7 @@ menu:
             show zander_neutral
             zander "Yes"
             narrator "Zander introduces and explain the facilities"
+            hide zander_neutral
             jump choice1_done
             "good job"
 

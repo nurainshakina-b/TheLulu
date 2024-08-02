@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 180: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    jump choice2_no
-    ^
+The label choice2_done is defined twice, at File "game/script.rpy", line 183:
+                                                                    label choice2_done:
+and File "game/script.rpy", line 214:
+                        label choice2_done:
+
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Aug  2 13:56:25 2024
+Fri Aug  2 22:00:31 2024
