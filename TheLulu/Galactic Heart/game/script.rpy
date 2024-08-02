@@ -34,7 +34,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    # show eileen happy
 
     # These display lines of dialogue.
 
@@ -48,7 +48,7 @@ label start:
     narrator "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
     narrator "And lastly find Izek."
 
-    hide eileen happy
+    # hide eileen happy
 
 scene bunk at truecenter
 menu:
@@ -57,7 +57,7 @@ menu:
         jump choice1_yes
         label choice1_yes:
             $ menu_flag = True
-            self "So, what is your name"
+            self "So, what is your name?"
             show zander_neutral
             zander "Zander"
             hide zander_neutral
@@ -90,6 +90,7 @@ menu:
                                                     "Seduce him":
                                                         jump choice2111_yes
                                                         label choice2111_yes:
+                                                        hide zander_neutral
                                                         show brandon_neutral
                                                         brandon "I have a wife and 2 kids. I know i look like this but I am loyal to them"
                                                         self "dammit.."
@@ -182,6 +183,7 @@ menu:
                                                                     label choice3_done:
 
                                                     "Bribe him":
+                                                        hide zander_neutral
                                                         show brandon_neutral
                                                         brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
                                                         narrator "You escaped  but you have to constantly bribe him"
@@ -226,7 +228,7 @@ menu:
         jump choice1_no
         label choice1_no:
             $ menu_flag = False
-            self "Is that my bed"
+            self "Is that my bed?"
             show zander_neutral
             zander "Yes"
             narrator "Zander introduces and explain the facilities"

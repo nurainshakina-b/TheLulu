@@ -25,10 +25,10 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#6A2425'
+define gui.accent_color = '#FFF5EA'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#BF5D67'
+define gui.idle_color = '#FFA178'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
@@ -72,7 +72,7 @@ define gui.text_size = 36
 define gui.name_text_size = 48
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 34
+define gui.interface_text_size = 50
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 36
@@ -206,14 +206,14 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ## Choice buttons are used in the in-game menus.
 
 define gui.choice_button_width = 1185
-define gui.choice_button_height = None
+define gui.choice_button_height = 70
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(150, 8, 150, 8)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#888888'
-define gui.choice_button_text_hover_color = "#ffffff"
+define gui.choice_button_text_idle_color = '#6A2425'
+define gui.choice_button_text_hover_color = "#FFF5EA"
 define gui.choice_button_text_insensitive_color = '#8888887f'
 
 
@@ -261,7 +261,7 @@ define gui.notify_ypos = 68
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 35
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 15
