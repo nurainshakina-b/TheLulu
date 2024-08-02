@@ -279,7 +279,6 @@ menu:
                                                             label choice222_yes:
                                                         #will direct this and add a menu to "Guard caught you entering a restricted area with classified information."
                                                             jump choice222_done
-                                                            label choice222_done:
                                                         
                                                         "Stay with teammates":
                                                             jump choice222_no
