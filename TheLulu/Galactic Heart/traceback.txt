@@ -1,14 +1,14 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 244, in script
+  File "game/script.rpy", line 247, in script
     jump choice22_done
 ScriptError: could not find label 'choice22_done'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 244, in script
+  File "game/script.rpy", line 247, in script
     jump choice22_done
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1701, in execute
     rv = renpy.game.script.lookup(target)
@@ -19,4 +19,4 @@ ScriptError: could not find label 'choice22_done'.
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Fri Aug  2 22:21:38 2024
+Fri Aug  2 23:00:09 2024

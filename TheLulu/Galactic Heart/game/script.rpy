@@ -8,6 +8,7 @@ define narrator = Character("Narrator")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
 define ian = Character("Ian")
+define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
 define annoucer = Character("Annoucement")
@@ -16,6 +17,7 @@ image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
 image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
+image planetboth = "bg_planetBoth_blur.png"
 
 # The game starts here.
 
@@ -189,7 +191,7 @@ menu:
                                                         brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
                                                         narrator "You escaped  but you have to constantly bribe him"
                                                         hide brandon_neutral
-                                                        jump choice2_no
+                                                        jump choice12_no
 
 
 
@@ -199,7 +201,7 @@ menu:
                                                 $ menu_flag = False
                                                 self "I can erase these coordinates.."
                                                 narrator "Get caught by higher personnel and is NOT suspicious of you"
-                                                jump choice14_done
+                                                jump choice12_no
                                                 label choice14_done:
                             
 
@@ -242,8 +244,69 @@ menu:
                                 show bg_jail_blur
                                 narrator "You get send to the cell."
                                 narrator "Authorities are alerted, reports were to the top guy."
-                                
+                                narrator "Izek got  the report about her and ask her to be brought to the office."
                                 jump choice22_done
+                                label choice22_done:
+                                menu: 
+                                    "The Confrontation":
+                                        jump choice3
+                                        label choice3:
+                                        narrator "The confrontation: Love or War?"
+                                        narrator "As you come face to face with him, you discovers the truth. But is he the same person, can he be trusted?"
+                                        narrator "You got called in to talk to the commander of Solara’s military."
+                                        narrator "Found out that the commander is Izek"
+                                        self "What is going on..No this can’t be"
+                                        narrator "You are suspicious"
+                                        narrator "Confront him"
+                                        self "I can’t believe you would do this.. You really betrayed us?"
+                                        show izek_neutral
+                                        izek " I did no such thing. I still stand with Gaiarise."
+                                        hide izek_neutral
+                                        narrator "Izek reveals his plans and what he has been doing"
+                                        show izek_neutral
+                                        izek "Its just plans changed. The people of Solara don’t deserve this. They need help... I have a plan to get rid of the corrupt."
+                                        hide izek_neutral
+                                        self "... and what? You’re not corrupted?"
+                                        show izek_neutral
+                                        izek " Do you really think i would do that to my home planet? ... To you? I have a plan and now that I know you’re here. You can help. Believe me Pleasee.."
+                                        
+                                        #calculated trust point determines, need to research
+                                        menu:
+                                            #High score of trust points
+                                            "Believe him":
+                                                jump choice31_yes
+                                                label choice31_yes:
+                                                    show planetboth
+                                                    narrator "He tells you what to do"
+                                                    narrator "Deciding to work with him, you send covert messages back to the command base. Sharing details of Izek and the current state of the planet. With Izek’s lead, he carried out a revolution with the Solaraian military and took down the corrupted regime. "
+                                                    narrator "Solara is rebuilding and mending its relationship with the planets they have wronged before. And with the newfound support of Gaiarise, an alliance was formed and this is the start of a new beginning for Solara. "
+                                                    narrator "After all is well, you and Izek explore old feelings and your happily ever after is just beginning. "
+                                                    narrator "Spread love, not war."
+                                                    jump choice31_done
+                                                    label choice31_done:
+                                            #Low score of trust points
+                                            "Do not believe him":
+                                                show planetboth
+                                                jump choice31_no
+                                                label choice31_no:
+                                                    narrator "Izek tries to share his plans but because of blind anger and frustration you reveal your plans to signal the siege to the command base (through a hidden button on your bracelet)"
+                                                    show izek_neutral
+                                                    izek "Listen, its not what you think.. I wouldn’t.."
+                                                    hide izek_neutral
+                                                    self "You really think i’ll listen to you.. I can’t risk it. I will not give up Gaiarise...not even for you. I’m sorry. I am going to signal for siege"
+                                                    show izek_neutral
+                                                    izek "...wait.. "
+                                                    izek"/sighs/"
+                                                    izek "Do it... Its okay... Its going to be harder to convince them but I will never blame you..."
+                                                    hide izek_neutral
+                                                    narrator "Signal for siege"
+                                                    narrator "While all is well for Gaiarise, its been revealed how corrupted the government of Solara is. The siege might have been saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along. "
+                                                    narrator "As for Izek, his loyalty is question. However, he never blamed you for his current situation. He knew its going to take a lot of convincing and evidence to prove his allegiance to Gaiarise. "
+                                                    narrator "Due to high tensions, they were never able to share their feelings for one another. With the stakes high, the protagonist was not willing to risk her planet, even for the man she loves. "
+                                                    narrator "Was it the right choice?"
+                                                    jump choice31_done
+
+
                             "Building Bridges":
                                 jump choice22_no
                                 label choice22_no:
@@ -302,7 +365,24 @@ menu:
                                                                 #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
                                                                 jump choice222_done
                                                                 label choice222_done:
+                                        "Ask how he looked like?":
+                                            jump choice221_no
+                                            label choice221_no:
+                                                self "What did he look like?"
+                                                show zander_neutral
+                                                zander "Some said he had dark hair and some said he was blonde.. honestly we don’t really know. The story is been pass down a lot, we don’t really know if its accurate.."
+                                                zander "You’re really into this huh.."
 
+                                                hide zander_neutral
+                                                narrator "Through the  conversation you find out how the people of Solara are against the rulers and are suffering."
+                                                zander "But yeah its not surprising that the government do nothing about it.." 
+                                                zander "I bet they kept the higher up silent about it too"
+                                                self "Why do you say that?"
+                                                zander "I mean don’t you know our government doesn’t care about our people..."
+                                                self "Ohh right right...You know for being such a hater...why are you even here? You’re not exactly err.. soldier material?"
+                                                zander "I had too. For my family.You understand right.."
+                                                self ".. I mean yeaa yeaa.."
+                                                jump choice222_no
                         jump choice2_done
 
 

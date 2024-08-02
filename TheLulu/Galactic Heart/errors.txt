@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label choice222_done is defined twice, at File "game/script.rpy", line 282:
-                                                            label choice222_done:
-and File "game/script.rpy", line 305:
-                                                                label choice222_done:
-
+File "game/script.rpy", line 248: end of line expected.
+    jump choice22_done:
+                      ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Aug  2 22:41:12 2024
+Fri Aug  2 23:00:24 2024
