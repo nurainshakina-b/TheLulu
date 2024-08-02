@@ -10,6 +10,7 @@ define izek = Character("Izek")
 define ian = Character("Ian")
 define zander = Character("Zander")
 define self = Character("Me")
+define annoucer = Character("Annoucement")
 
 image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
@@ -61,7 +62,7 @@ menu:
             show zander_neutral
             zander "Zander"
             hide zander_neutral
-            jump choice1_done
+            jump choice12_no
             label choice1_done:
             narrator "Let's explore the area"
             menu: 
@@ -69,6 +70,7 @@ menu:
                     jump choice12_yes
                     label choice12_yes:
                         $ menu_flag = True
+                        show bg_meeting_rm_blur
                         menu: 
                             narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
                             "Sabotage":
@@ -213,12 +215,95 @@ menu:
                         label choice2_done:
                             
                 "Finds Training Room":
+                    show bg_training_rm_blur
                     jump choice12_no
                     label choice12_no:
                         $ menu_flag = False
                         narrator "The Training. Start of Act 2 (Path 2)"
                         narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
                         narrator"As your training begins, you'll face decisions about whether to manipulate others or build alliances. You'll meet Jay, the weakest link in the group, and might rely on your roommate, Zander, to progress. Alternatively, you can try to succeed on your own. But is that the best choice?"
+                        narrator "Training obstacle begins and individuals who fail will not advance"
+                        menu:
+                            "Burning Bridges":
+                                jump choice22_yes
+                                label choice22_yes:
+                                show bg_training_rm_blur
+                                narrator "Sabotage others"
+                                self "If only I could make 1 other person slip.."
+                                narrator "People get suspicious and anxious."
+                                narrator "Work alone"
+                                narrator "Complete the task fast"
+                                self "Since I got time to spare, let's explore"
+                                hide bg_training_rm_blur
+                                show bg_corridor_blur
+                                narrator "Proceeds to explore other facilities- left training grounds"
+                                
+                                narrator "Guard caught you entering a restricted area with classified information."
+                                show bg_jail_blur
+                                narrator "You get send to the cell."
+                                narrator "Authorities are alerted, reports were to the top guy."
+                                
+                                jump choice22_done
+                            "Building Bridges":
+                                jump choice22_no
+                                label choice22_no:
+                                    narrator "Push other to work together"
+                                    self "We should all work together"
+                                    narrator"Strengthen current bonds with Jay and Zander"
+                                    narrator "Your bond led to finding out information about Izek and more about the people of Solara"
+                                    show brandon_neutral
+                                    brandon "Did you guys hear about the story of the guy who died here?"
+                                    hide brandon_neutral
+                                    self "“What? Someone died? Who”"
+
+                                    menu:
+                                        "Ask about when it happen":
+                                            jump choice221_yes
+                                            label choice221_yes:
+                                                self "When was this?"
+                                                show brandon_neutral
+                                                brandon "Like 3- 4 years ago ish..?"
+                                                brandon "I mean there were rumours that there people trying to cover up the whole thing"
+                                                brandon "I remember seeing some big meeting  happening among the leaders at A2 ll meeting room. I almost got into trouble there."
+                                                hide brandon_neutral
+                                                self  "Huh...interesting..."
+                                                narrator "Through the conversation, you find out about the meeting room."
+                                                narrator "You are motivated now that you learn something crucial. You urge your teammates to complete the training so they could have a break ."
+                                                self "That's enough, lets get through this fast so that we could get a break.."
+                                                narrator "Comeplete the training"
+                                                jump choice221_done
+                                                label choice221_done:
+                                                    menu: 
+                                                        "Sneak away and find the meeting room.":
+                                                            jump choice222_yes
+                                                            label choice222_yes:
+                                                        #will direct this and add a menu to "Guard caught you entering a restricted area with classified information."
+                                                            jump choice222_done
+                                                            label choice222_done:
+                                                        
+                                                        "Stay with teammates":
+                                                            jump choice222_no
+                                                            label choice222_no:
+                                                                narrator "Announcement bell rang"
+                                                                annoucer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring. "
+                                                                narrator "Heads to the training grounds, where they gave a boring speech to start off."
+                                                                show bg_training_rm_blur
+                                                                annoucer "Welcome trainees to the Annual Solara Trainee Sparring. Everyone is required to attend. Fight till one is left standing. The winner will receive an opportunity to lead our upcoming mission alongside our Commander"
+                                                                narrator "Proceeds to fight"
+                                                                self " Well looks like this will be a breeze. Let’s give my all then! "
+                                                                narrator "Became the last pair standing"
+                                                                self "So close to the finishing line. I can’t give up yet."
+                                                                narrator "Managed to defeat the other trainee and became the winner of Solara’s Annual Trainee Sparring"
+                                                                
+                                                                narrator "Izek stood by the sidelines at the training ground while listening to the boring opening ceremony"
+                                                                show izek_neutral
+                                                                izek "I detest attending these kind of events but hm let’s see what the trainees got... "
+                                                                narrator "He asks the nearby guard for the name of the newbie that won"
+                                                                izek "Send me that trainee’s document to my office now."
+                                                                #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
+                                                                jump choice222_done
+                                                                label choice222_done:
+
                         jump choice2_done
 
 
