@@ -7,12 +7,14 @@
 define narrator = Character("Narrator")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
+define ian = Character("Ian")
 define zander = Character("Zander")
 define self = Character("Me")
 
 image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
-image bunk ="bg_bunk_rm"
+image bunk ="bg_bunk_rm_blur.png"
+image jailblur = "bg_jail_blur.png"
 
 # The game starts here.
 
@@ -102,6 +104,82 @@ menu:
 
                                                             narrator "Can you get out of it?  "
                                                             narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
+                                                            menu:
+                                                                "Knowing that you got caught, you decide to use this opportunity to find out about Izek. Manipulate information out of them":
+                                                                    jump choice3_yes
+                                                                    label choice3_yes:
+                                                                        show brandon_neutral
+                                                                        brandon "Are you not going to talk?"
+                                                                        narrator " Interrogators are intrigued and start revealing information about Ian (Agent Izek’s undercover name)"
+                                                                        narrator "Express familiarity with Ian"
+                                                                        hide brandon_neutral                
+                                                                        menu:
+                                                                            "How did you know him? Who are you to him?"
+
+                                                                            "Tell a semi -lie and that say he is a friend you’ve been searching for.":
+                                                                                jump choice31_yes
+                                                                                label choice31_yes:
+                                                                                    show brandon_neutral
+                                                                                    brandon "We are close friends back in the orphanage and I came to find him"
+                                                                                    narrator "Interrogators are intrigued and devise a plan to use you for further operations."
+                                                                                    narrator "You become a trusted agent (although you are not sure why)"
+                                                                                    hide brandon_neutral
+                                                                                    show brandon_neutral
+                                                                                    brandon "So, you’re friends with Izek..."
+                                                                                    brandon "Yea.. do you know him?"
+                                                                                    brandon "chuckles"
+                                                                                    brandon "Do we know him? we’re familiar..But now we know that you’re close. We can put you to use too"
+                                                                                    narrator "You learn that they play to use you in the upcoming operation."
+                                                                                    narrator "Izek, now a top operative in the organisation, receives the report and notices your name and details."
+                                                                                    hide brandon_neutral
+                                                                                    izek "Whats this?"
+                                                                                    izek "We have a trainee that we believe is in connection with you and believe that she might be useful for the upcoming mission..Do you recognise her?"
+                                                                                    narrator "He further investigate and reviews the documents. He connects the dots and recognises you."
+                                                                                    izek "Wait.. i do"
+                                                                                    narrator "Calls her into the office under the disguise sharing information of the mission."
+                                                                                    izek "Send her in... I’ll run through the details of the mission myself.."
+                                                                                    jump choice31_done
+                                                                                    label choice31_done:
+                                                                                        
+                                                                            "Tell them he is your lover. Demand them to tell if he is alive or dead":
+                                                                                jump choice31_no
+                                                                                label choice31_no:
+                                                                                    brandon "We are romantically involved !"
+                                                                                    narrator "They stop questioning and look anxious to continue. You receive leniency and it gave you more time to plan."
+                                                                                    narrator "They alert the top guy (Izek) about the situation and sends her back to the cell."
+                                                                                    narrator "Izek receives the report regarding you. Confuse and intrigued with her claims."
+                                                                                    narrator "Izek goes down to the cell, about to confront you."
+                                                                                    jump choice31_done
+                                                                                    
+                                                                    jump choice3_done
+
+
+                                                                "You can still escape this if you play your cards right. Lie and act clueless":
+                                                                    jump choice3_no
+                                                                    label choice3_no:
+                                                                        narrator "Interrogators become suspicious but have no concrete evidence."
+                                                                        menu: 
+                                                                            "Show further confusion":
+                                                                                jump choice32_yes
+                                                                                label choice32_yes:
+                                                                                    narrator "I don’t understand.. How are they important? Can you explain"
+                                                                                    narrator "Interrogators explains, giving you time to gather information."
+                                                                                    narrator "Feign ignorance and escape"
+                                                                                    narrator "I’m sorry, I didn’t know. I’ll be more careful. I thought i was just doing the right thing.."
+                                                                                    narrator "We will let you off for now. Let this be a warning."
+                                                                                    narrator "You are let off with a warning but you are also underestimated"
+                                                                                jump choice2_no
+                                                                                label choice32_done:
+
+                                                                            "Deflect Questions":
+                                                                                jump choice32_no
+                                                                                label choice32_no:
+                                                                                    narrator "I thought I was just doing my job.. I was just following orders. Can I go now?"
+                                                                                    narrator "You are released but will be closely monitored."
+                                                                                jump choice2_no
+
+                                                                    jump choice3_done
+                                                                    label choice3_done:
 
                                                     "Bribe him":
                                                         show brandon_neutral
@@ -128,7 +206,7 @@ menu:
                                     $ menu_flag = False
                                     self "Its too risky to sabotage the plans now.."
                                     narrator "You weren't caught"
-                                    jump choice22_done
+                                    jump choice2_no
                                     label choice22_done:
 
                         jump choice2_done

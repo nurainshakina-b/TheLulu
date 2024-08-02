@@ -1,24 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 108, in script
-    Brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
-Exception: Sayer 'Brandon' is not defined.
+  File "game/script.rpy", line 120, in script
+    e "Interrogators become suspicious but have no concrete evidence."
+Exception: Sayer 'e' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 108, in script
-    Brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
+  File "game/script.rpy", line 120, in script
+    e "Interrogators become suspicious but have no concrete evidence."
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
     Say.execute(self)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 575, in execute
     who = eval_who(self.who, self.who_fast)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 464, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Brandon' is not defined.
+Exception: Sayer 'e' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Thu Aug  1 20:42:51 2024
+Fri Aug  2 11:31:24 2024
