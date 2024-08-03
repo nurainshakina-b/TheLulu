@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 248: end of line expected.
-    jump choice22_done:
-                      ^
+File "game/script.rpy", line 362: expected statement.
+    izek
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Fri Aug  2 23:00:24 2024
+Sat Aug  3 23:56:18 2024

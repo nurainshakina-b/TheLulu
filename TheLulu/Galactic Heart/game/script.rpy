@@ -153,7 +153,7 @@ menu:
                                                                                     narrator "They alert the top guy (Izek) about the situation and sends her back to the cell."
                                                                                     narrator "Izek receives the report regarding you. Confuse and intrigued with her claims."
                                                                                     narrator "Izek goes down to the cell, about to confront you."
-                                                                                    jump choice22_done
+                                                                                    jump choice3_lover
                                                                                     
                                                                     jump choice2_done
 
@@ -248,14 +248,16 @@ menu:
                                 label choice22_done:
                                 menu: 
                                     "The Confrontation":
-                                        jump choice3
-                                        label choice3:
+                                        jump choice3_lie
+                                        label choice3_lie:
                                         narrator "The confrontation: Love or War?"
                                         narrator "As you come face to face with him, you discovers the truth. But is he the same person, can he be trusted?"
                                         narrator "You got called in to talk to the commander of Solara’s military."
                                         narrator "Found out that the commander is Izek"
                                         self "What is going on..No this can’t be"
                                         narrator "You are suspicious"
+                                        jump choice3_liecut
+                                        label choice3_liecut:
                                         narrator "Confront him"
                                         self "I can’t believe you would do this.. You really betrayed us?"
                                         show izek_neutral
@@ -304,6 +306,77 @@ menu:
                                                     narrator "Due to high tensions, they were never able to share their feelings for one another. With the stakes high, the protagonist was not willing to risk her planet, even for the man she loves. "
                                                     narrator "Was it the right choice?"
                                                     jump choice31_done
+                                        
+                                        jump choice3_lover
+                                        
+                                    "The Confrontation":
+                                        label choice3_lover:
+                                            show brandon_neutral
+                                            brandon "The commander wants to see you.."
+                                            self "The commander?"
+                                            self "gasps.. Its you.."
+                                            hide brandon_neutral
+                                            show izek_neutral
+                                            izek "The rest can leave.. It seems like we have some reconnecting to do right?"
+                                            hide izek_neutral
+                                            narrator "you are surprise and suspicious"
+                                            self "You’re okay.. you are alive?"
+                                            show izek_neutral
+                                            izek "As you can see I am better than okay.. soo how did you end up here ... lover"
+                                            hide izek_neutral
+                                            self "You’re the commander now, the leader of the Solara military?"
+                                            menu: 
+                                                "Reveal your plans":
+                                                    jump choice311_yes
+                                                    label choice311_yes:
+                                                        self "If you remember me, then you would know I came to find you"
+                                                        show izek_neutral
+                                                        izek "Is that all that is?"
+                                                        hide izek_neutral
+                                                        self "I came to find you!?"
+                                                        jump choice3_liecut
+
+                                                "Find out more about him":
+                                                    jump choice311_no
+                                                    label choice311_no:
+                                                        self "What happened to you? I thought you were dead?"
+                                                        show izek_neutral
+                                                        izek "I became the leader..."
+                                                        hide izek_neutral
+                                                    jump choice311_done
+                                                    label choice311_done:
+                                                        menu:
+                                                            "Show frustration":
+                                                                jump choice3111_yes
+                                                                label choice3111_yes:
+                                                                    self "Everyone has been worried about you ever since your contact got cut but it seems like I was worried sick for nothing. Glad to know."
+                                                                    #link to the nodes
+                                                                jump choice31_no
+                                                                label choice3111_done:
+                                              
+                                                            "Show concern":
+                                                                jump choice3111_no
+                                                                label choice3111_no:
+                                                                    self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
+                                                                    show izek_neutral
+                                                                    izek " I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
+                                                                    hide izek_neutral
+                                                                    self "You know why I said that. Is your allegiance to Solara now?"
+                                                                    narrator "Izek explains the current situation"
+                                                                    show izek_neutral
+                                                                    izek "You know, i wouldn’t do that to you right.."
+                                                                    izek "My loyalty will always be Gaiarise and to you. After helping you train all these years, wouldn’t you know me enough to not question my loyalty."
+                                                                    hide izek_neutral
+                                                                    self "I am not sure anymore."
+                                                                    show izek_slightsmile
+                                                                    izek "Well, then you would remember this. I  have feelings for you."
+                                                                    hide izek_slightsmile
+                                                                    self "Do not bring our feelings into this."
+                                                                    narrator"end"
+
+
+
+
 
 
                             "Building Bridges":
