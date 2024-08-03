@@ -19,6 +19,31 @@ image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
 
+default player_trust=50
+default player_trust_max = 100
+
+screen single_stat(name, player_trust, player_trust_max, xalign):
+    frame:
+        xalign xalign
+        vbox:
+            spacing 5
+            hbox: 
+                text"[name!t]" min_width 300
+
+            hbox:
+                text _("Trust Bar:"):
+                    min_width 40
+                    yalign 0.5
+
+                bar:
+                    value AnimatedValue(player_trust,player_trust_max, 1.0)
+                    xmaximum 180
+                    ysize 0.5
+
+                text "[player_trust]/[player_trust_max]":
+                    yalign 0.0
+
+
 # The game starts here.
 
 label start:
@@ -26,10 +51,14 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+    screen stats():
+        use single_stat(_("Me"), player_trust, player_trust_max,0.0)
+
+    
 
     scene planetA at truecenter
     with dissolve
-
+    
     
 
 
