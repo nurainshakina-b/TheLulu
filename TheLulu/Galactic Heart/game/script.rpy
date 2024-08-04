@@ -26,7 +26,7 @@ image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
 
-default player_trust=50
+default player_trust= 50
 default player_trust_max = 100
 
 

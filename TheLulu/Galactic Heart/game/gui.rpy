@@ -35,7 +35,7 @@ define gui.idle_color = '#FFA178'
 define gui.idle_small_color = '#E4979F'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#66c1e0'
+define gui.hover_color = '#6A2425'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -87,7 +87,8 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "images/bg_planetB_blur.png"
+define gui.main_menu_background = "images/bg_mainmenu.png"
+#define gui.main_menu_background = "images/bg_planetB_blur.png"
 define gui.game_menu_background = "images/bg_planetB_blur.png"
 
 
