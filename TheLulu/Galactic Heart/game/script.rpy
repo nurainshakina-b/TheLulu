@@ -19,7 +19,7 @@ define announcer = Character("Annoucement")
 define soldierA = Character("Soldier A")
 define soldierB = Character("Soldier B")
 define soldierC = Character("Soldier C")
-define faceless = Character("Faceless Soldier")
+define faceless = Character("Random Soldier")
 
 image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
@@ -65,7 +65,7 @@ label start:
 
 
 #BACKGROUD INFORMATION
-    narrator "Let's start"
+    narrator "Let's start."
 
     narrator "Several light years have passed, life at Gaiarise has not been the same without you."
 
@@ -75,7 +75,7 @@ label start:
 
     But something went wrong, all communication was lost and he never returned back. Many looked up to him and hoped he would return.
 
-    However, now being one of the best, you are needed for a mission.
+    However, now being one of the best, I am needed for a mission.
 
     Go to Solara, and infiltrate their military. Find information and signal back to the command base to start the siege.
 
@@ -472,7 +472,8 @@ menu:
                                 soldierA "Trainee Alia has completed her training. Good job, trainee."
                                 hide soldier
                                 self "Thanks."
-                                self "I’ve got some time to spare, maybe it’s a good opportunity to take a look around. I should gather as much information as possible while the others are distracted."
+                                self "{i}I’ve got some time to spare, maybe it’s a good opportunity to take a look around.{\i}"
+                                self "{i}I should gather as much information as possible while the others are distracted.{\i}"
 
 
                                 show bg_meeting_rm_blur
@@ -483,34 +484,40 @@ menu:
 
                                 #TODO if condition
                                 #if player stole documents in act 1,
+                                show brandon_neutral
                                 brandon "Ha... It’s you again. What are you doing here? You’re not authorised to be in here."
                                 self """Oh, I did not know. 
                                 
                                 I was looking around and I got lost. I did not mean to cause trouble."""
-                                brandon """That excuse is not gonna work on me the second time.
-
-                                And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
+                                brandon "That excuse is not gonna work on me the second time."
+                                hide brandon_neutral
+                                show brandon_smirk
+                                brandon """And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
     
                                 Let’s go. You’re going to the cell today."""
                                 narrator "{i}Shoot.{\i}"
+                                hide brandon_smirk
                                 #TODO jump to act 3 general route
 
                                 #TODO if condition
                                 #if player stole documents in act 1,
+
+                                show brandon_neutral
+
                                 brandon """What are you doing here? Aren’t you a trainee?
 
                                 You’re not authorised to be in here."""
                                 self "Oh, I did not know."
                                 brandon "These are top secret information. How did you get in here?"
                                 self "I was looking around and I got lost. I did not mean to cause trouble."
-                                brandon """That excuse is not gonna work on me the second time.
-
-                                And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?
-    
-                                Let’s go. You’re going to the cell today."""
-                                narrator "{i}Shoot.{\i}"
+                                brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
+                                hide brandon_neutral
+                                show brandon_slightsmile
+                                brandon "Let’s go. You’re going to the cell today."
+                                thoughts "{i}Shoot.{\i}"
 
                                 #TODO jump to act 3 general route
+                                #TODO update menu below
 
                                 jump choice22_done
                                 label choice22_done:
@@ -520,11 +527,9 @@ menu:
                                         play music "audio/Beauty Flow.mp3" volume 0.5 loop
                                         jump choice3_lie
                                         label choice3_lie:
-                                        narrator "The confrontation: Love or War?"
-                                        narrator "As you come face to face with him, you discovers the truth. But is he the same person, can he be trusted?"
-                                        narrator "You got called in to talk to the commander of Solara’s military."
-                                        narrator "Found out that the commander is Izek"
-                                        self "What is going on..No this can’t be"
+                                        narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
+                                        #TODO update node below
+                                        self "What is going on... No this can’t be!"
                                         narrator "You are suspicious"
                                         jump choice3_liecut
                                         label choice3_liecut:
@@ -532,13 +537,9 @@ menu:
                                         self "I can’t believe you would do this.. You really betrayed us?"
                                         show izek_neutral
                                         izek "I did no such thing. I still stand with Gaiarise."
-                                        hide izek_neutral
                                         narrator "Izek reveals his plans and what he has been doing"
-                                        show izek_neutral
                                         izek "Its just plans changed. The people of Solara don’t deserve this. They need help... I have a plan to get rid of the corrupt."
-                                        hide izek_neutral
                                         self "... and what? You’re not corrupted?"
-                                        show izek_neutral
                                         izek "Do you really think i would do that to my home planet? ... To you? I have a plan and now that I know you’re here. You can help. Believe me Pleasee.."
                                         
                                         #calculated trust point determines, need to research
@@ -547,33 +548,67 @@ menu:
                                             "Believe him":
                                                 jump choice31_yes
                                                 label choice31_yes:
+                                                    self "Okay, I’ll hear you out. You won’t betray us, right?"
+                                                    izek "I would never do that to you. You know that."
+                                                    self "What do you need me to do?"
+                                                    izek """Send a message back to the command base.
+
+                                                    Tell them about me—about what’s really going on here. Let them know Solara is corrupted, but we’re taking it down from the inside.
+                                                    
+                                                    The people here need our help, not our wrath."""
+                                                    
+                                                    izek """Contact Astralis and Lunara as well. Make sure they’re aware of the situation.
+
+                                                    Tell them we’ll return what was taken and rebuild the damage caused by previous conflicts.
+                                                    
+                                                    We need to unite to fix this—together. We can turn this whole situation around."""
+
                                                     show planetboth
-                                                    narrator "He tells you what to do"
-                                                    narrator "Deciding to work with him, you send covert messages back to the command base. Sharing details of Izek and the current state of the planet. With Izek’s lead, he carried out a revolution with the Solaraian military and took down the corrupted regime."
-                                                    narrator "Solara is rebuilding and mending its relationship with the planets they have wronged before. And with the newfound support of Gaiarise, an alliance was formed and this is the start of a new beginning for Solara."
-                                                    narrator "After all is well, you and Izek explore old feelings and your happily ever after is just beginning."
-                                                    narrator "Spread love, not war."
+                                                    narrator """Deciding to work with him, I send covert messages back to the command base, sharing details of Izek and the current state of Solara.
+
+                                                    With Izek’s lead, he carried out a revolution with the Solaraian military and took down the corrupted regime.
+
+                                                    Solara is rebuilding and mending its relationship with the planets they have wronged before. And with the newfound support of Gaiarise, an alliance was formed.
+
+                                                    This is the start of a new beginning for Solara. 
+
+                                                    After all is well, Izek and I explore old feelings and our happily ever after is just beginning."""
+                                                    narrator "{i}Spread love, not war.{\i}"
+                                                    #TODO jump to finish
                                                     jump choice31_done
                                                     label choice31_done:
                                             #Low score of trust points
                                             "Do not believe him":
+                                                self "I can’t believe this, Izek!"
+                                                izek "Listen, it’s not what you think... I wouldn’t betray you or Gaiarise. Please, just hear me out—"
+                                                self """You really think I’ll listen to you after all this? I can’t risk it, Ian.
+
+                                                I will not give up Gaiarise... not even for you.
+
+                                                I’m sorry. I have to signal the siege."""
+                                                izek "Wait..!"
+                                                narrator "Izek pauses and then nods slowly."
+                                                izek """Do it. It’s okay.
+
+                                                I know it’s going to be harder to convince them now, but I will never blame you. Do what you have to do."""
+                                                show izek_slightsmile
+                                                izek "Just... please stay safe, Alia."
+
                                                 show planetboth
+
                                                 jump choice31_no
                                                 label choice31_no:
-                                                    narrator "Izek tries to share his plans but because of blind anger and frustration you reveal your plans to signal the siege to the command base (through a hidden button on your bracelet)"
-                                                    show izek_neutral
-                                                    izek "Listen, its not what you think.. I wouldn’t.."
-                                                    hide izek_neutral
-                                                    self "You really think i’ll listen to you.. I can’t risk it. I will not give up Gaiarise...not even for you. I’m sorry. I am going to signal for siege"
-                                                    show izek_neutral
-                                                    izek "...wait.."
-                                                    izek"/sighs/"
-                                                    izek "Do it... Its okay... Its going to be harder to convince them but I will never blame you..."
-                                                    hide izek_neutral
-                                                    narrator "Signal for siege"
-                                                    narrator "While all is well for Gaiarise, its been revealed how corrupted the government of Solara is. The siege might have been saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along."
-                                                    narrator "As for Izek, his loyalty is question. However, he never blamed you for his current situation. He knew its going to take a lot of convincing and evidence to prove his allegiance to Gaiarise."
-                                                    narrator "Due to high tensions, they were never able to share their feelings for one another. With the stakes high, the protagonist was not willing to risk her planet, even for the man she loves."
+                                                    narrator """While all is well for Gaiarise, it has been revealed how corrupted the government of Solara is.
+
+                                                    The siege might have been a saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along. 
+
+                                                    As for Izek, his loyalty is still a question. However, he never blamed me for his current situation.
+
+                                                    He know it’s going to take a lot of convincing and evidence to prove his allegiance to Gaiarise. 
+
+                                                    Due to high tensions, both of us were never able to share our feelings for one another.
+
+                                                    With the stakes high, I am not willing to risk my planet, my home, even for the man I love."""
                                                     narrator "Was it the right choice?"
                                                     jump choice31_done
                                         
@@ -700,10 +735,13 @@ menu:
                                                 jump choice221_done
                                                 label choice221_done:
                                                     menu: 
-                                                        "Sneak away and find the meeting room.":
+                                                        "Sneak away and find the meeting room":
                                                             jump choice222_yes
                                                             label choice222_yes:
-                                                        #will direct this and add a menu to "Guard caught you entering a restricted area with classified information."
+
+                                                            self "We got time to spare. Maybe I should sneak away."
+                                                            #TODO jump to next node
+
                                                             jump choice222_done
                                                         
                                                         "Stay with teammates":
@@ -718,17 +756,36 @@ menu:
 
                                                                 The winner will earn the opportunity to lead our upcoming mission alongside our First Commander."""
 
-                                                                #TODO TO CONTINUE
                                                                 zander "No one’s ever met the First Commander. But a whole mission? This might be interesting."
                                                                 jay "Yeah... I’m not even going to try. You guys go ahead. I’ll be here watching."
                                                                 self "Well, looks like this will be a breeze. Let’s give my all then!"
                                                                 
-                                                                narrator "Izek stood by the sidelines at the training ground while listening to the boring opening ceremony"
+                                                                #TODO fade in out to black
+
+                                                                narrator "One final fight-"
+                                                                narrator """As Zander hits the ground, the impact echoes throughout the arena. I wince.
+
+                                                                I need to focus. I can’t afford any distractions now.
+
+                                                                Finally, the quarter-finals are over, and Zander is out. Only one more opponent stands between me and victory.
+
+                                                                While I continue fighting on, the First Commander was lurking in the shadows unbeknownst to me."""
+                                                                
                                                                 show izek_neutral
-                                                                izek "I detest attending these kind of events but hm let’s see what the trainees got..."
-                                                                narrator "He asks the nearby guard for the name of the newbie that won"
-                                                                izek "Send me that trainee’s document to my office now."
-                                                                #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
+                                                                izek """I detest attending these kind of events but let’s see what the trainees got.
+
+                                                                Last two standing, finally. Hmm... That fighting style..! It’s so familiar.
+
+                                                                It reminds me of my times back in Gaiarise. Could it be... {i}her{\i}? What is she doing here? 
+
+                                                                I want that trainee’s documents. Send them to my office, {i}now{\i}."""
+                                                                soldierB "Yes, sir. Will she be going for the mission? "
+                                                                show izek_slightsmile
+                                                                izek """Yes. I can already tell she’s going to win...
+
+                                                                {i}I taught her, after all.{\i}
+
+                                                                Send her to my office once it’s over. I’ll go through the mission details with her personally."""                                                                #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
                                                                 jump choice222_done
                                                                 label choice222_done:
                                         "Ask how he looked like":
