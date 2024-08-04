@@ -41,7 +41,7 @@ label start:
     # add a file (named either "bg room.png"or "bg room.jpg") to the
     # images directory to show it.
     
-
+    play music "audio/Bleeping Demo.mp3" volume 0.5
     show planetboth
     with fade
     hide planetA
