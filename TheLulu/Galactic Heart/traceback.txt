@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 288, in script
-    soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+  File "game/script.rpy", line 323, in script
+    soldier "You’re on thin ice. Make sure this doesn’t happen again."
 Exception: Sayer 'soldier' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 288, in script
-    soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+  File "game/script.rpy", line 323, in script
+    soldier "You’re on thin ice. Make sure this doesn’t happen again."
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
     Say.execute(self)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 575, in execute
@@ -21,4 +21,4 @@ Exception: Sayer 'soldier' is not defined.
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 16:58:15 2024
+Sun Aug  4 17:00:29 2024

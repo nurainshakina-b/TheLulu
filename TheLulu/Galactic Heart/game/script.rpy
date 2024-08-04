@@ -320,7 +320,7 @@ menu:
                                                                                     hide soldier
                                                                                     self "Security breach? I swear, it was just a mix-up. I wouldn’t know what to do with classified documents if they fell in my lap!"
                                                                                     show soldier 
-                                                                                    soldier "You’re on thin ice. Make sure this doesn’t happen again."
+                                                                                    soldierA "You’re on thin ice. Make sure this doesn’t happen again."
                                                                                     hide soldier
                                                                                     self "Absolutely. I’ll be more careful. Thank you for understanding."
                                                                                     thoughts "That was close but they’re going to keep a closer eye on me now."
