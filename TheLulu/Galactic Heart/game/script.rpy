@@ -498,6 +498,8 @@ menu:
                                 
             
                                 self "This looks interesting."
+
+                                play sound "audio/Door Open.mp3" volume 0.8
                                 "{i}Damn.. I knew it was too good to be true. {\i}"
 
                                 if stealDoc == True:
@@ -547,12 +549,14 @@ menu:
 
                                 jump choice3_start
                                 label choice22_done:
+                                
                                     
                                 menu: 
-                                    
+                                
                                     "The Confrontation":
                                         jump choice3_start
                                         label choice3_start:
+                                       
                                         show screen grand_screen_3
                                         stop music fadeout 1.0
                                         play music "audio/Beauty Flow.mp3" volume 0.5 loop
@@ -561,6 +565,7 @@ menu:
                                         #TODO update node below
                                         self "What’s happening? Where are you taking me now? "
                                         show soldier at screen_center
+                                        hide izek_slightsmile at screen_center
                                         soldierA "Commander Ian, please excuse my leave."
 
                                         #SFX DOOR CLOSE
@@ -785,6 +790,7 @@ menu:
                                                                 {i}I taught her, after all.{\i}
 
                                                                 Send her to my office once it’s over. I’ll go through the mission details with her personally."""
+                                                                
                                                                 
                                                                                                                                 #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
                                                                     
