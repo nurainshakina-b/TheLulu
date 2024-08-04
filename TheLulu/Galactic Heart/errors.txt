@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 126: expected 'image_name_component' not found.
-    show 
-         ^
+File "game/screens.rpy", line 101: Line is indented, but the preceding add statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    vbox:
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 10:28:33 2024
+Sun Aug  4 11:37:43 2024

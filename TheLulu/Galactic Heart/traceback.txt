@@ -1,28 +1,63 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 93, in script
-    with slowdissolve
-  File "game/script.rpy", line 93, in <module>
-    with slowdissolve
-NameError: name 'slowdissolve' is not defined
+  File "game/script.rpy", line 41, in script
+    with fade
+  File "game/screens.rpy", line 99, in execute
+    screen single_stat():
+  File "game/screens.rpy", line 99, in execute
+    screen single_stat():
+  File "game/screens.rpy", line 100, in execute
+    frame:
+  File "game/screens.rpy", line 100, in keywords
+    frame:
+  File "game/screens.rpy", line 101, in <module>
+    xalign xalign
+NameError: name 'xalign' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 93, in script
-    with slowdissolve
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1356, in execute
-    trans = renpy.python.py_eval(self.expr)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 93, in <module>
-    with slowdissolve
-NameError: name 'slowdissolve' is not defined
+  File "game/script.rpy", line 41, in script
+    with fade
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1363, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1782, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 1549, in do_with
+    return self.interact(trans_pause=True,
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2166, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2688, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\displayable.py", line 431, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 2 more times]
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 480, in visit_all
+    callback(self)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2688, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 491, in per_interact
+    self.update()
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 697, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 99, in execute
+    screen single_stat():
+  File "game/screens.rpy", line 99, in execute
+    screen single_stat():
+  File "game/screens.rpy", line 100, in execute
+    frame:
+  File "game/screens.rpy", line 100, in keywords
+    frame:
+  File "game/screens.rpy", line 101, in <module>
+    xalign xalign
+NameError: name 'xalign' is not defined
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 09:10:11 2024
+Sun Aug  4 11:23:10 2024

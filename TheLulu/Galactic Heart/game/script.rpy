@@ -27,24 +27,20 @@ default player_trust_max = 100
 
  
 
- 
-
 # The game starts here.
 
-label start:
+label start:    
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-    screen stats():
-        use single_stat(_("Me"), player_trust, player_trust_max,0.0)
-
     
 
-    scene planetA at truecenter
+    show planetboth
     with fade
+    hide planetA
     
-    
+
 
 
     # This shows a character sprite. A placeholder is used, but you can
@@ -57,9 +53,10 @@ label start:
 
 
 
+    show screen single_stat
+
 
     narrator "Start"
-
 
     narrator "Several light years have passed, life at Gaiarise has not been the same without you. "
 
