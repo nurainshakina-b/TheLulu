@@ -94,6 +94,28 @@ style frame:
 ## and id "window" to apply style properties.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
+#trust state bar
+screen single_stat(name, player_trust, player_trust_max, xalign):
+    frame:
+        xalign xalign
+        vbox:
+            spacing 5
+            hbox: 
+                text"[name!t]" min_width 300
+
+            hbox:
+                text _("Trust Bar:"):
+                    min_width 40
+                    yalign 0.5
+
+                bar:
+                    value AnimatedValue(player_trust,player_trust_max, 1.0)
+                    xmaximum 180
+                    ysize 0.5
+
+                text "[player_trust]/[player_trust_max]":
+                    yalign 0.0
+                    
 
 screen say(who, what):
     style_prefix "say"

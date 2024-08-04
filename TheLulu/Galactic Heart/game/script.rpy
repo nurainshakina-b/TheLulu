@@ -26,31 +26,7 @@ default player_trust_max = 100
 
 
  
-#trust state bar
-screen single_stat(name, player_trust, player_trust_max, xalign):
-    frame:
-        xalign xalign
-        vbox:
-            spacing 5
-            hbox: 
-                text"[name!t]" min_width 300
 
-            hbox:
-                text _("Trust Bar:"):
-                    min_width 40
-                    yalign 0.5
-
-                bar:
-                    value AnimatedValue(player_trust,player_trust_max, 1.0)
-                    xmaximum 180
-                    ysize 0.5
-
-                text "[player_trust]/[player_trust_max]":
-                    yalign 0.0
-
-
-screen textTrust:
-    text "Trust:"
  
 
 # The game starts here.
@@ -119,7 +95,7 @@ menu:
                     label choice12_yes:
                         $ menu_flag = True
                         show bg_meeting_rm_blur
-                        with Dissolve(1.0)
+                        with fade
                         menu: 
                             narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
                             "Sabotage":
@@ -148,6 +124,7 @@ menu:
                                                         narrator "You were being brought to the cell"
                                                         hide brandon_neutral
                                                         show bg_jail
+                                                        with fade
                                                         jump choice15_done
                                                         label choice15_done:
 
@@ -264,6 +241,7 @@ menu:
                             
                 "Finds Training Room":
                     show bg_training_rm_blur
+                    with fade
                     jump choice12_no
                     label choice12_no:
                         $ menu_flag = False
@@ -276,6 +254,7 @@ menu:
                                 jump choice22_yes
                                 label choice22_yes:
                                 show bg_training_rm_blur
+                                with fade
                                 narrator "Sabotage others"
                                 self "If only I could make 1 other person slip.."
                                 narrator "People get suspicious and anxious."
@@ -284,10 +263,12 @@ menu:
                                 self "Since I got time to spare, let's explore"
                                 hide bg_training_rm_blur
                                 show bg_corridor_blur
+                                with fade
                                 narrator "Proceeds to explore other facilities- left training grounds"
                                 
                                 narrator "Guard caught you entering a restricted area with classified information."
                                 show bg_jail_blur
+                                with fade
                                 narrator "You get send to the cell."
                                 narrator "Authorities are alerted, reports were to the top guy."
                                 narrator "Izek got  the report about her and ask her to be brought to the office."
@@ -469,6 +450,7 @@ menu:
                                                                 annoucer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring. "
                                                                 narrator "Heads to the training grounds, where they gave a boring speech to start off."
                                                                 show bg_training_rm_blur
+                                                                with fade
                                                                 annoucer "Welcome trainees to the Annual Solara Trainee Sparring. Everyone is required to attend. Fight till one is left standing. The winner will receive an opportunity to lead our upcoming mission alongside our Commander"
                                                                 narrator "Proceeds to fight"
                                                                 self " Well looks like this will be a breeze. Let’s give my all then! "

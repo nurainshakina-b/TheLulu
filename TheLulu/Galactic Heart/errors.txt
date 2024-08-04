@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 87: 'action' is not a keyword argument or valid child of the text statement.
-    action Return(True)
-          ^
+File "game/script.rpy", line 126: expected 'image_name_component' not found.
+    show 
+         ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 09:26:24 2024
+Sun Aug  4 10:28:33 2024
