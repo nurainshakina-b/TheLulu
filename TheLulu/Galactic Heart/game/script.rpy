@@ -6,13 +6,15 @@
 
 
 #Characters
-define narrator = Character("Narrator")
+define narrator = Character("")
+define connor = Character("Commander Connor")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
 define ian = Character("Ian")
 define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
+define thoughts = Character("Thinks to self")
 define annoucer = Character("Annoucement")
 
 image planetA ="bg_planetA_blur.png"
@@ -54,40 +56,73 @@ label start:
 
 
     show screen single_stat
-    show screen grand_screen
+    show screen grand_screen_1
     
 
 
+#BACKGROUD INFORMATION
     narrator "Let's start"
 
-    narrator "Several light years have passed, life at Gaiarise has not been the same without you. "
+    narrator "Several light years have passed, life at Gaiarise has not been the same without you."
 
-    narrator "After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Galarise had set forth for a mission."
-    narrator "To infiltrate and find our information on them, sending their top agent - Agent Izek. But something went wrong, all communication was lost and he  never returned back. Many looked up to him and hoped he would return . "
+    narrator "After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Gaiarise had set forth a mission."
+    narrator "To infiltrate and find our information on them, sending their top agent - Agent Izek."
+    narrator " But something went wrong, all communication was lost and he never returned back. Many looked up to him and hoped he would return."
     narrator "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
     narrator "And lastly find Izek."
+
+#CONVO1
+    show bg_command_base_blur
+    with fade
+
+    show connor_neutral
+    with vpunch
+
+    connor " Reports from our allies indicate a rise in resource theft. All evidence points to Solara as the perpetrator. Intelligence suggests Gaiarise is their next target. You’re one of our top agents, and this mission falls to you. "
+    hide connor_neutral
+
+    self "What’s the mission?" 
+
+    show connor_neutral
+    connor "You’re going undercover in Solara. We’re embedding you in their military. Your job is to infiltrate and dig up whatever you can on their plans."
+    connor "And don’t forget—find Izek. Undercover name: Ian."
+    hide connor_neutral
+
+    self "Izek? After all this time? We haven’t heard from him in ages."
+    show connor_neutral
+    connor "I know it’s been a while. But we need answers, and we need him back. Whether he’s alive or… not, just bring him home."
+    connor "This ring is fingerprint-activated. It’s your signal for the siege of Solara. Use it if you’re in trouble, or when you’ve decided it’s time to initiate the siege."
+    hide connor_neutral
+
+    self " I successfully integrate into the military, and begin my journey as a trainee. My mission is clear: gather intelligence and locate Izek. My quest starts now."
+    show bunk
+    with fade
+    with hpunch
+
+    show zander_neutral at truecenter
+    self "Training life starts. I come across Zander, my new roommate."
+    hide zander_neutral
     
 
-    # hide eileen happy
-
-show bunk
-with fade
-with hpunch
-
+#CHOICE1
 menu:
-    self "What should I do"
-    "Make friends":
+    "Ignore Him":
         jump choice1_yes
         label choice1_yes:
-            $ menu_flag = True
-            self "So, what is your name?"
+            $ menu_flag = False
+            self " So... are you my roommate?"
             show zander_neutral
-
-            zander "Zander"
+            zander " Yea.."
             hide zander_neutral
-            jump choice12_no
+            self " Okayyy"
+            thoughts "Hmmm.. Maybe I should I go look around."
+
+            jump choice1_done
             label choice1_done:
             narrator "Let's explore the area"
+            show bg_corridor_blur
+            with fade
+            #CHOICE12
             menu: 
                 "Finds Meeting Room":
                     jump choice12_yes
@@ -95,13 +130,16 @@ menu:
                         $ menu_flag = True
                         show bg_meeting_rm_blur
                         with fade
+                        self "What’s this? Oh, damn... "
+                        self "These are coordinates and secret pathways to Astralis and Lunara—Gaiarise’s allies. " 
+                        self "They’re planning to hit them next?? What should I do? Hmm..."
+
                         menu: 
-                            narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
-                            "Sabotage":
+                            "Sabotage Plans":
                                 jump choice13_yes
                                 label choice13_yes:
                                     $ menu_flag = True
-                                    self "I got to do something about this hmmm.."
+                                    self "I got to stop this. What do I do?"
                                 jump choice13_done
                                 label choice13_done:
                                         menu:
@@ -227,23 +265,31 @@ menu:
                                                 label choice14_done:
                             
 
-                            "Ignore":
+                            #CHOICE13
+                            "Ignore Plans":
                                 jump choice13_no
                                 label choice13_no:
                                     $ menu_flag = False
-                                    self "Its too risky to sabotage the plans now.."
+                                    self "It’s too risky to do anything now. I’ll have to report back what I saw. Maybe I could come back here again. I need to go to the training room now."
                                     narrator "You weren't caught"
-                                    jump choice12_no
+                                    jump choice2p2
+                                    show screen grand_screen_2
 
                         jump choice2_done
                         label choice2_done:
                             
+                #CHOICE12
                 "Finds Training Room":
                     show bg_training_rm_blur
                     with fade
                     jump choice12_no
                     label choice12_no:
                         $ menu_flag = False
+                        self "Combat Simulation Chamber? Hmm.. Ahhh so this is the training room."
+
+
+                        jump choice2p2
+                        label choice2p2:
                         narrator "The Training. Start of Act 2 (Path 2)"
                         narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
                         narrator"As your training begins, you'll face decisions about whether to manipulate others or build alliances. You'll meet Jay, the weakest link in the group, and might rely on your roommate, Zander, to progress. Alternatively, you can try to succeed on your own. But is that the best choice?"
@@ -486,17 +532,31 @@ menu:
                         jump choice2_done
 
 
-    "Ignore him":
+    "Make Friends":
         jump choice1_no
         label choice1_no:
-            $ menu_flag = False
-            self "Is that my bed?"
+            $ menu_flag = True
+            self "Hey... I’m Alia and I’m new here. What’s your name? "
             show zander_neutral
-            zander "Yes"
-            narrator "Zander introduces and explain the facilities"
+            zander "Oh hey, Zander here. Do you want me to show you around? "
             hide zander_neutral
-            jump choice1_done
-            "good job"
+            self "That’d be great, thanks..!"
+            show bg_corridor_blur
+            with fade
+            show zander_neutral
+            zander "So, here’s the Neural Lounge— it’s our version of a break room. You can decompress and clear your mind from a tough mission here. Over there, we have the Holo-Conferencing Room. That’s where we sync commands across the galaxy in real-time."
+            hide zander_neutral
+            self "Impressive... What’s next?"
+            show zander_neutral
+            zander "Now, we’re heading to the Combat Simulation Chamber. It’s where you’ll be training."
+            hide zander_neutral
+            self "Cool... So, is training tough? "
+            show zander_neutral
+            zander "Let’s just say, the sim chamber adapts to your skill level. You’ll be facing everything from basic drills to full-scale virtual invasions. But don’t worry—you’re going to find out soon enough"
+            hide zander_neutral
+            show screen grand_screen_2
+
+        jump choice2p2
 
             
 return

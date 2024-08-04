@@ -107,17 +107,33 @@ screen single_stat():
         xalign 0.05
         yalign 0.05
 
-screen grand_screen():
+screen grand_screen_1():
     modal True
     frame:
         xsize 800
         ysize 400
         xalign 0.5 yalign 0.5
-        text "Act 1":
+        text "Act 1- Start of Mission":
             xalign 0.5
-        textbutton "Click to continue":
-            xalign 0.5 ypos 50
-            action Hide("grand_screen")
+            
+        textbutton "Click here to continue":
+            xalign 0.5 ypos 150
+            action Hide("grand_screen_1")
+
+            #hover_sound""
+
+screen grand_screen_2():
+    modal True
+    frame:
+        xsize 800
+        ysize 400
+        xalign 0.5 yalign 0.5
+        text "Act 2 - The Training":
+            xalign 0.5
+            
+        textbutton "Click here to continue":
+            xalign 0.5 ypos 150
+            action Hide("grand_screen_2")
 
             #hover_sound""
 
