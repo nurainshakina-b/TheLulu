@@ -1,15 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 66, in script
-    narrator "And lastly find Izek."
-TypeError: missing a required argument: 'trustpoint'
+  File "game/script.rpy", line 61, in script
+    narrator "Start"
+  File "game/screens.rpy", line 110, in execute
+    screen grand_screen():
+  File "game/screens.rpy", line 110, in execute
+    screen grand_screen():
+  File "game/screens.rpy", line 112, in execute
+    frame:
+  File "game/screens.rpy", line 116, in execute
+    textbutton "Click to continue":
+  File "game/screens.rpy", line 116, in keywords
+    textbutton "Click to continue":
+  File "game/screens.rpy", line 117, in <module>
+    action Hide(grand_screen)
+NameError: name 'grand_screen' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 66, in script
-    narrator "And lastly find Izek."
+  File "game/script.rpy", line 61, in script
+    narrator "Start"
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
     Say.execute(self)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
@@ -42,13 +54,21 @@ Full traceback:
     self.update()
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 697, in update
     self.screen.function(**self.scope)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\parameter.py", line 429, in apply_arguments
-    return parameters.apply(args or (), kwargs or {}, ignore_errors)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\parameter.py", line 283, in apply
-    raise TypeError(msg) # from None
-TypeError: missing a required argument: 'trustpoint'
+  File "game/screens.rpy", line 110, in execute
+    screen grand_screen():
+  File "game/screens.rpy", line 110, in execute
+    screen grand_screen():
+  File "game/screens.rpy", line 112, in execute
+    frame:
+  File "game/screens.rpy", line 116, in execute
+    textbutton "Click to continue":
+  File "game/screens.rpy", line 116, in keywords
+    textbutton "Click to continue":
+  File "game/screens.rpy", line 117, in <module>
+    action Hide(grand_screen)
+NameError: name 'grand_screen' is not defined
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 12:11:17 2024
+Sun Aug  4 13:11:43 2024

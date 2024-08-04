@@ -87,8 +87,8 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "images/bg_bunk_rm_blur.png"
-define gui.game_menu_background = "images/bg_bunk_rm_blur.png"
+define gui.main_menu_background = "images/bg_planetB_blur.png"
+define gui.game_menu_background = "images/bg_planetB_blur.png"
 
 
 
@@ -285,7 +285,7 @@ define gui.main_menu_text_xalign = 1.0
 ## components when an overlay or window is not present.
 
 ## Generic frames.
-define gui.frame_borders = Borders(6, 6, 6, 6)
+define gui.frame_borders = Borders(100, 100, 100, 100)
 
 ## The frame that is used as part of the confirm screen.
 define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
@@ -298,6 +298,8 @@ define gui.notify_frame_borders = Borders(24, 8, 60, 8)
 
 ## Should frame backgrounds be tiled?
 define gui.frame_tile = False
+
+
 
 
 ## Bars, Scrollbars, and Sliders ###############################################

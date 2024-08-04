@@ -54,9 +54,11 @@ label start:
 
 
     show screen single_stat
+    show screen grand_screen
+    
 
 
-    narrator "Start"
+    narrator "Let's start"
 
     narrator "Several light years have passed, life at Gaiarise has not been the same without you. "
 

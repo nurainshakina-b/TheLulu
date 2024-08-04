@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 104: bar expects a non-empty block.
-    bar:
-        ^
+File "game/screens.rpy", line 115: Line is indented, but the preceding text statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    xalign 0.5
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 12:10:47 2024
+Sun Aug  4 13:17:04 2024

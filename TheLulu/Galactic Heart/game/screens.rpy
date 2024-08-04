@@ -53,17 +53,17 @@ style vbar:
 style scrollbar:
     ysize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/GH_trustbar_fill.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+    thumb Frame("gui/bar/GH_trustbar_fill.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
 
 style vscrollbar:
     xsize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/GH_trustbar_fill.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+    thumb Frame("gui/bar/GH_trustbar_fill.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
 style slider:
     ysize gui.slider_size
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/GH_trustbar_fill.png"
+    thumb "gui/bar/GH_trustbar_fill.png"
 
 style vslider:
     xsize gui.slider_size
@@ -73,7 +73,7 @@ style vslider:
 
 style frame:
     padding gui.frame_borders.padding
-    background Frame("gui/GH_trustbar_bg.png", gui.frame_borders, tile=gui.frame_tile)
+    background Frame("gui/DBox_Show.png", gui.frame_borders, tile=gui.frame_tile)
 
 
 
@@ -100,7 +100,6 @@ default trustpoint_max= 100
 
 #trust state bar
 screen single_stat():
-    
     bar:
         value trustpoint
         range 100
@@ -108,9 +107,21 @@ screen single_stat():
         xalign 0.05
         yalign 0.05
 
+screen grand_screen():
+    modal True
+    frame:
+        xsize 800
+        ysize 400
+        xalign 0.5 yalign 0.5
+        text "Act 1":
+            xalign 0.5
+        textbutton "Click to continue":
+            xalign 0.5 ypos 50
+            action Hide("grand_screen")
 
-        
-            
+            #hover_sound""
+
+
 
 screen say(who, what):
     style_prefix "say"
