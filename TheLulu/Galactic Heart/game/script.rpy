@@ -15,7 +15,7 @@ define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
 define thoughts = Character("Me")
-define announcer = Character("Annoucement")
+define announcer = Character("Announcement")
 define soldierA = Character("Soldier A")
 define soldierB = Character("Soldier B")
 define soldierC = Character("Soldier C")
@@ -169,7 +169,6 @@ menu:
                                                 $ menu_flag = True
                                                 self "These documents. I need to send them back to command base."
                                                 play sound "audio/Door Open.mp3" volume 0.8
-                                                narrator "Door Opens."
                                                 self "Oh damn."
                                                 show brandon_neutral
                                                 with hpunch
@@ -396,7 +395,6 @@ menu:
                                                 label choice14_no:
                                                 $ menu_flag = False
                                                 self "Wait, these seem to be the only copies they have. I could just erase the coordinates."
-                                                narrator "Door opens."
                                                 play sound "audio/Door Open.mp3" volume 0.8
                                                 show brandon_neutral
                                                 with hpunch
@@ -875,25 +873,44 @@ menu:
                             label choice3111_no:
                                 self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
                                 show izek_neutral
-                                izek "I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
+                                izek "I’ve been better... but I’m still standing. Glad to know you still care about me."
                                 hide izek_neutral
-                                self "You know why I said that. Is your allegiance to Solara now?"
-                                narrator "Izek explains the current situation"
+                                show izek_slightsmile
+                                izek "Oh, wait. We’re lovers, right?"
+                                self """You know why I said that. It was my cover. I didn’t even know you were alive.
+
+                                Is your allegiance to Solara now?"""
+                                hide izek_slightsmile
                                 show izek_neutral
-                                izek "You know, i wouldn’t do that to you right.."
-                                izek "My loyalty will always be Gaiarise and to you. After helping you train all these years, wouldn’t you know me enough to not question my loyalty."
-                                hide izek_neutral
+
+                                izek """You know I wouldn’t do that. My loyalty will always be with Gaiarise and you.
+
+                                After all those years I helped you train, wouldn’t you know me well enough to not question my loyalty?"""
                                 self "I am not sure anymore."
                                 show izek_slightsmile
-                                izek "Well, then you would remember this. I  have feelings for you."
-                                hide izek_slightsmile
+                                izek """Well then, you should remember this- I have feelings for you. I wouldn’t do anything to hurt you.
+
+                                My emotions for you were real, and they haven’t changed."""
+
                                 self "Do not bring our feelings into this."
-                                narrator"end"
+                                hide izek_slightsmile
+                                self """We’re talking about loyalty and duty, not personal emotions.
+
+                                I need to know where you stand and what you’re really up to."""
+                                show izek_neutral
+                                                                    
+                                izek """The people of Solara need help. The government is making us steal resources from other planets and it doesn’t even go to the people.
+
+                                They need help, and I have a plan to root out the corruption.
+
+                                I’m doing this to save them. To save Gaiarise. I have a plan, a way to tear down the corrupt system from within."""
+                                self "And you want me to believe you? After all this?"
+                                izek """Yes. I need you to believe me. Now that I know you’re here, you can help.
+
+                                Together, we can make this right. Please, Alia. Trust me."""
+
+                                jump choice31_yes
     
             
 jump choice3_lover_done
 label choice3_lover_done:
-
-    
-
-
