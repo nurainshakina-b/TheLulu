@@ -147,10 +147,25 @@ menu:
                                                 jump choice14_yes
                                                 label choice14_yes:
                                                 $ menu_flag = True
-                                                self "I need to send this back to the main base.."
-                                                narrator "Get caught by higher personnel and is suspicious of you"
-                                                
+                                                self "These documents. I need to send them back to command base."
+                                                narrator "Door Opens. "
+                                                self "Oh damn. "
+                                                show brandon_neutral
+                                                with hpunch
+                                                with vpunch
+                                                brandon "What are you doing here? Aren’t you a trainee? You’re not authorised to be in here."
+                                                hide brandon_neutral
+                                                self "Oh, I did not know."
+                                                show brandon_neutral
+                                                brandon "These are top secret information. How did you get in here?"
+                                                hide brandon_neutral
+                                                self " I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
+                                                show brandon_neutral
+                                                brandon "So you didn’t want to cause trouble.  What’s that you’re holding?"
+                                                hide brandon_neutral
+                                                thoughts "How do I get out of this? "                                              
                                                 menu:
+                                                    #CHOICE15
                                                     "Seduce him":
                                                         jump choice15_yes
                                                         label choice15_yes:
@@ -245,23 +260,50 @@ menu:
 
                                                                     jump choice2_done
 
+                                                    #CHOICE15
                                                     "Bribe him":
-                                                        hide zander_neutral
+                                                        jump choice15_no
+                                                        label choice15_no:
+                                                        self "Can’t you let me off? I was just curious about what this was all about. "
                                                         show brandon_neutral
-                                                        brandon "Fine, i’ll let you off. This is going to help my family.. but its going to cost you."
-                                                        narrator "You escaped  but you have to constantly bribe him"
+                                                        brandon "Why did you need to know? "
                                                         hide brandon_neutral
-                                                        jump choice12_no
+                                                        self " I’m new here, and honestly, a bit of an overachiever. I just wanted to be prepared. Please, just this once, let it slide. I’ll make it worth your while—Celestium, as much as you want. Name your price."
+                                                        show brandon_neutral
+                                                        brandon "Alright, I’ll let it go. This’ll help my family… but it’s going to cost you. "
+                                                        hide brandon_neutral
+                                                        self "Okay so 50 Celestium anytime? "
+                                                        show brandon_neutral
+                                                        with vpunch
+                                                        brandon "You got yourself a deal."
+                                                        brandon " You’re playing a dangerous game, Alia. But maybe I can be persuaded... this time. Just remember, I’m not as easy to sway as you might think. If you get caught again, you’re on your own."
+                                                        hide brandon_neutral
+                                                        thoughts "That was a close call. I got away this time. But why the heck did I offer 50 Celestium, anytime? This is going to cost me big time. Dammit. Now where’s the training room?"
+                                                        show screen grand_screen_2
+                                                        jump choice2p2
 
-
-
+                                            #CHOICE14
                                             "Erase Coordinates":
                                                 jump choice14_no
                                                 label choice14_no:
                                                 $ menu_flag = False
-                                                self "I can erase these coordinates.."
-                                                narrator "Get caught by higher personnel and is NOT suspicious of you"
-                                                jump choice12_no
+                                                self "Wait, these seem to be the only copies they have. I could just erase the coordinates."
+                                                narrator "Door opens."
+                                                show brandon_neutral
+                                                with hpunch
+                                                brandon "What are you doing here? Aren’t you a trainee? You’re not authorised to be in here."
+                                                hide brandon_neutral
+                                                self "Oh, I did not know."
+                                                show brandon_neutral
+                                                brandon "Mind you trainee, only a higher personnel like myself and your sergeant majors could enter in here and not the likes of you. So.. how did you get in here?"
+                                                hide brandon_neutral
+                                                self " I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
+                                                show brandon_neutral
+                                                brandon "Don’t come in here unless you were told to again. The Combat Simulation Chamber is right around the corner. Now, go your training is about to start."
+                                                hide brandon_neutral
+                                                show screen grand_screen_2
+
+                                                jump choice2p2
                                                 label choice14_done:
                             
 

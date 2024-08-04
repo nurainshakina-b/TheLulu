@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 275: expected statement.
-    choice2p2
-             ^
+The label choice15_yes is defined twice, at File "game/script.rpy", line 170:
+                                                        label choice15_yes:
+and File "game/script.rpy", line 264:
+                                                        label choice15_yes:
+
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 14:31:25 2024
+Sun Aug  4 14:49:55 2024
