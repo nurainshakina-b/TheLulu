@@ -4,6 +4,8 @@
 # name of the character.
 
 
+
+#Characters
 define narrator = Character("Narrator")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
@@ -22,6 +24,9 @@ image planetboth = "bg_planetBoth_blur.png"
 default player_trust=50
 default player_trust_max = 100
 
+
+ 
+#trust state bar
 screen single_stat(name, player_trust, player_trust_max, xalign):
     frame:
         xalign xalign
@@ -44,6 +49,10 @@ screen single_stat(name, player_trust, player_trust_max, xalign):
                     yalign 0.0
 
 
+screen textTrust:
+    text "Trust:"
+ 
+
 # The game starts here.
 
 label start:
@@ -57,7 +66,7 @@ label start:
     
 
     scene planetA at truecenter
-    with dissolve
+    with fade
     
     
 
@@ -70,6 +79,9 @@ label start:
 
     # These display lines of dialogue.
 
+
+
+
     narrator "Start"
 
 
@@ -79,10 +91,14 @@ label start:
     narrator "To infiltrate and find our information on them, sending their top agent - Agent Izek. But something went wrong, all communication was lost and he  never returned back. Many looked up to him and hoped he would return . "
     narrator "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
     narrator "And lastly find Izek."
+    
 
     # hide eileen happy
 
-scene bunk at truecenter
+show bunk
+with fade
+with hpunch
+
 menu:
     self "What should I do"
     "Make friends":
@@ -91,6 +107,7 @@ menu:
             $ menu_flag = True
             self "So, what is your name?"
             show zander_neutral
+
             zander "Zander"
             hide zander_neutral
             jump choice12_no
@@ -102,6 +119,7 @@ menu:
                     label choice12_yes:
                         $ menu_flag = True
                         show bg_meeting_rm_blur
+                        with Dissolve(1.0)
                         menu: 
                             narrator "You come across important information on Solara’s plan to steal resources from Allied planets."
                             "Sabotage":
