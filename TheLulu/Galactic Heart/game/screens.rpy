@@ -100,9 +100,15 @@ default trustpoint_max= 100
 
 #trust state bar
 screen single_stat:
-    text "Trust bar: [trustpoint]":
+    frame:
         xalign 0.05
         yalign 0.05
+        vbox:
+            xalign 0.05
+            yalign 0.05
+            text "Trust bar: [trustpoint]":
+                xalign 0.05
+                yalign 0.05
             
 
 screen say(who, what):
