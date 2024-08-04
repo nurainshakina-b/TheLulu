@@ -243,35 +243,34 @@ menu:
                                                                                     ian "What’s this? "
                                                                                     hide izek_neutral
                                                                                     show soldier
-                                                                                    soldierA ""
+                                                                                    soldierA "We have a trainee who we believe is in connection with you and believe that she might be useful for the upcoming mission... Do you recognise her?"
+                                                                                    hide soldier
+                                                                                    show izek_neutral
+                                                                                    ian "...I do. So, she’s here?"
+                                                                                    hide izek_neutral
+                                                                                    show soldier
+                                                                                    soldierA "Yes, sir. She’s currently waiting for further instructions."
+                                                                                    hide soldier
+                                                                                    show izek_neutral
+                                                                                    ian "Send her in. I’ll run through the details of the mission myself."
 
-                                                                                    #old structure
-                                                                                    narrator "You become a trusted agent (although you are not sure why)"
-                                                                                    hide brandon_neutral
-                                                                                    show brandon_neutral
-                                                                                    brandon "So, you’re friends with Izek..."
-                                                                                    brandon "Yea.. do you know him?"
-                                                                                    brandon "chuckles"
-                                                                                    brandon "Do we know him? we’re familiar..But now we know that you’re close. We can put you to use too"
-                                                                                    narrator "You learn that they play to use you in the upcoming operation."
-                                                                                    narrator "Izek, now a top operative in the organisation, receives the report and notices your name and details."
-                                                                                    hide brandon_neutral
-                                                                                    izek "Whats this?"
-                                                                                    izek "We have a trainee that we believe is in connection with you and believe that she might be useful for the upcoming mission..Do you recognise her?"
-                                                                                    narrator "He further investigate and reviews the documents. He connects the dots and recognises you."
-                                                                                    izek "Wait.. i do"
-                                                                                    narrator "Calls her into the office under the disguise sharing information of the mission."
-                                                                                    izek "Send her in... I’ll run through the details of the mission myself.."
                                                                                     jump choice22_done
                                                                                         
-                                                                            "Tell them he is your lover. Demand them to tell if he is alive or dead":
+                                                                            #CHOICE21
+                                                                            "Lie : He’s my lover":
                                                                                 jump choice21_no
                                                                                 label choice21_no:
-                                                                                    brandon "We are romantically involved !"
-                                                                                    narrator "They stop questioning and look anxious to continue. You receive leniency and it gave you more time to plan."
-                                                                                    narrator "They alert the top guy (Izek) about the situation and sends her back to the cell."
-                                                                                    narrator "Izek receives the report regarding you. Confuse and intrigued with her claims."
-                                                                                    narrator "Izek goes down to the cell, about to confront you."
+                                                                                    self "We are romantically involved !"
+                                                                                    show soldier
+                                                                                    soldierA "You and Ian? Okay, I’ve heard enough from you for today."
+                                                                                    hide soldier
+                                                                                    self "You’re going to let me off?"
+                                                                                    show soldier 
+                                                                                    soldierA "No, you’re going back to the cell. We will continue this tomorrow."
+                                                                                    hide soldier
+                                                                                    narrator "As the questioning ends, they report this situation to their commander. A familiar face."
+
+
                                                                                     jump choice3_lover
                                                                                     
                                                                     jump choice2_done
