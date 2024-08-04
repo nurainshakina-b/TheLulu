@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label choice3_start is defined twice, at File "game/script.rpy", line 547:
-                                        label choice3_start:
-and File "game/script.rpy", line 829:
-        label choice3_start:
-
+File "game/script.rpy", line 496: end of line expected.
+    self "{i}I should gather as much information as possible while the others are distracted.{\i}"""
+                                                                                                  ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 23:29:39 2024
+Mon Aug  5 00:59:55 2024

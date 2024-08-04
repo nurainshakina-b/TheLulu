@@ -26,6 +26,7 @@ image planetB ="bg_planetB_blur.png"
 image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
+image meetingrm = "bg_meeting_rm_blur.png"
 
 image zander_neutral_darken:
     'zander_neutral.png'
@@ -217,9 +218,6 @@ menu:
                                                         hide brandon_smirk
                                                         self "Dammit..."
                                                         show screen grand_screen_2_jail
-                
-                                                        show bg_jail
-                                                        with fade
                                                         jump choice15_done
                                                         label choice15_done:
 
@@ -496,15 +494,35 @@ menu:
                                 self "Thanks."
                                 self "{i}I’ve got some time to spare, maybe it’s a good opportunity to take a look around.{\i}"
                                 self "{i}I should gather as much information as possible while the others are distracted.{\i}"
-
-
-                                show bg_meeting_rm_blur
-                                with fade
-
+                                show meetingrm
+                                
+            
                                 self "This looks interesting."
                                 "{i}Damn.. I knew it was too good to be true. {\i}"
 
                                 if stealDoc == True:
+                                    jump brandonFirst
+                                    label brandonFirst:
+                                        show brandon_neutral at screen_center
+
+                                        brandon """What are you doing here? Aren’t you a trainee?
+
+                                        You’re not authorised to be in here."""
+                                        self "Oh, I did not know."
+                                        brandon "These are top secret information. How did you get in here?"
+                                        self "I was looking around and I got lost. I did not mean to cause trouble."
+                                        brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
+                                        hide brandon_neutral
+                                        show brandon_slightsmile at screen_center
+                                        brandon "Let’s go. You’re going to the cell today."
+                                        show jailblur
+                                        with fade
+                                        thoughts "{i}Shoot.{\i}"
+                                        
+                                        hide brandon_slightsmile
+                                        jump choice3_start
+                                else:
+                                    
                                     jump brandonAgain
                                     label brandonAgain:
                                         show brandon_neutral at screen_center
@@ -517,28 +535,12 @@ menu:
                                         brandon """And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
 
                                         Let’s go. You’re going to the cell today."""
-                                        narrator "{i}Shoot.{\i}"
+                                        show jailblur
+                                        with fade
                                         hide brandon_smirk
 
                                         jump choice3_start
-                                else:
-                                    jump brandonFirst
-                                    label brandonFirst:
-                                        show brandon_neutral
-
-                                        brandon """What are you doing here? Aren’t you a trainee?
-
-                                        You’re not authorised to be in here."""
-                                        self "Oh, I did not know."
-                                        brandon "These are top secret information. How did you get in here?"
-                                        self "I was looking around and I got lost. I did not mean to cause trouble."
-                                        brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
-                                        hide brandon_neutral
-                                        show brandon_slightsmile
-                                        brandon "Let’s go. You’re going to the cell today."
-                                        thoughts "{i}Shoot.{\i}"
-                                        hide brandon_slightsmile
-                                        jump choice3_start
+                                        
 
                                 #TODO update menu below
                                 show screen grand_screen_3
@@ -549,11 +551,12 @@ menu:
                                 menu: 
                                     
                                     "The Confrontation":
-                                        stop music fadeout 1.0
-                                        play music "audio/Beauty Flow.mp3" volume 0.5 loop
-                                        show screen grand_screen_3
                                         jump choice3_start
                                         label choice3_start:
+                                        show screen grand_screen_3
+                                        stop music fadeout 1.0
+                                        play music "audio/Beauty Flow.mp3" volume 0.5 loop
+                                        narrator "The confrontation: Love or War?"
                                         narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
                                         #TODO update node below
                                         self "What’s happening? Where are you taking me now? "
@@ -763,8 +766,10 @@ menu:
 
                                                                 While I continue fighting on, the First Commander was lurking in the shadows unbeknownst to me."""
                                                                 
-                                                                hide zander_neutral
+                                                                hide zander_neutral_darken
                                                                 hide soldier_darken 
+                                                                hide zander_slightsmile
+                                                                hide soldier
                                                                 show izek_neutral at screen_center
                                                                 izek """I detest attending these kind of events but let’s see what the trainees got.
 
@@ -783,7 +788,7 @@ menu:
                                                                 
                                                                                                                                 #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
                                                                     
-                                                                jump choice222_done
+                                                                jump choice3_start
                                                                 label choice222_done:
                                         "Ask how he looked like":
                                             jump choice221_no
