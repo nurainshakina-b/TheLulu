@@ -18,6 +18,7 @@ define thoughts = Character("Thinks to self")
 define annoucer = Character("Annoucement")
 define soldierA = Character("Soldier A")
 define soldierB = Character("Soldier B")
+define faceless = Character("Faceless Soldier")
 
 image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
@@ -397,29 +398,41 @@ menu:
                     label choice12_no:
                         $ menu_flag = False
                         self "Combat Simulation Chamber? Hmm.. Ahhh so this is the training room."
-
-
+                        
                         jump choice2p2
                         label choice2p2:
+                        show screen grand_screen_2
+                        show bg_training_rm_blur
+                        with fade
+
+                        #CHOICE2PATH2
                         narrator "The Training. Start of Act 2 (Path 2)"
                         narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
                         narrator"As your training begins, you'll face decisions about whether to manipulate others or build alliances. You'll meet Jay, the weakest link in the group, and might rely on your roommate, Zander, to progress. Alternatively, you can try to succeed on your own. But is that the best choice?"
-                        narrator "Training obstacle begins and individuals who fail will not advance"
+                        self "So, this is the training room.  Dammit, I got to do this all over again. I hate this."
                         menu:
                             "Burning Bridges":
                                 jump choice22_yes
                                 label choice22_yes:
-                                show bg_training_rm_blur
+                                
+                                self "Let’s get through this quickly. So, we have to climb the ranks? It might be faster if I work alone. Hmm... If only there was a way to slip past some of these obstacles. "
+                                self " If I can find a way to undermine the others, especially the weaker ones like Jay, it could speed up my progress. I’ll need to be careful, though—subtlety is key."
+                                self "Yes! I made him slip. "
+                                show soldier
+                                faceless "Did you see that? What is happening?"
+                                hide soldier
+                                self "Huh, this is good. Everyone’s is getting nervous. It’s time to end this."
+                                show soldier
+                                soldierA "Trainee Alia has completed her training. Good job, trainee."
+                                hide soldier
+                                self "Thanks."
+                                self "I’ve got some time to spare, maybe it’s a good opportunity to take a look around. I should gather as much information as possible while the others are distracted."
+
+
+                                show bg_meeting_rm_blur
                                 with fade
-                                narrator "Sabotage others"
-                                self "If only I could make 1 other person slip.."
-                                narrator "People get suspicious and anxious."
-                                narrator "Work alone"
-                                narrator "Complete the task fast"
-                                self "Since I got time to spare, let's explore"
-                                hide bg_training_rm_blur
-                                show bg_corridor_blur
-                                with fade
+
+                                #old structure
                                 narrator "Proceeds to explore other facilities- left training grounds"
                                 
                                 narrator "Guard caught you entering a restricted area with classified information."
