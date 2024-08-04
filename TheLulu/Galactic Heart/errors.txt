@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label choice15_yes is defined twice, at File "game/script.rpy", line 170:
-                                                        label choice15_yes:
-and File "game/script.rpy", line 264:
-                                                        label choice15_yes:
-
+File "game/script.rpy", line 188: end of line expected.
+    show screen screen grand_screen_2_jail(0)
+                       ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 14:49:55 2024
+Sun Aug  4 15:08:25 2024

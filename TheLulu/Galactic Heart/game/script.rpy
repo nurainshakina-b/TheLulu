@@ -169,19 +169,28 @@ menu:
                                                     "Seduce him":
                                                         jump choice15_yes
                                                         label choice15_yes:
-                                                        hide zander_neutral
+
+                                                        self "Can’t you let me off? I just got lost."
                                                         show brandon_neutral
-                                                        brandon "I have a wife and 2 kids. I know i look like this but I am loyal to them"
-                                                        self "Dammit.."
-                                                        narrator "You were being brought to the cell"
+                                                        brandon "You got lost? And somehow ended up with those classified papers in your hands?"
                                                         hide brandon_neutral
+                                                        self " I... I didn’t mean any harm. I’ll do anything to make it right. Please, just let me off the hook. I mean... you’re a good-looking guy. Maybe we could work something out?"
+                                                        show brandon_neutral
+                                                        brandon "Flattery won’t get you far, but I have to admit, you’ve got guts. Still, you’re in deep water here. What exactly are you offering?"
+                                                        hide brandon_neutral
+                                                        self "-leans in closer, her voice softening-"
+                                                        self "Whatever you want. I just don’t want any trouble... and I’d really hate for this to ruin our first impression. Maybe we could come to a... mutual understanding?"
+                                                        show brandon_smirk
+                                                        with easeinright
+                                                        brandon "I have a wife and two kids. I know I look like this but I am loyal to them. Come on. I’m sending you down to the cells. "
+                                                        hide brandon_smirk
+                                                        self "Dammit..."
+                                                        show screen grand_screen_2_jail
+                
                                                         show bg_jail
                                                         with fade
                                                         jump choice15_done
                                                         label choice15_done:
-
-                                                            narrator "The Questioning"
-                                                            narrator "Start of Act 2 (Path 1)"
 
                                                             narrator "Can you get out of it?  "
                                                             narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
