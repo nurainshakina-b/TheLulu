@@ -226,7 +226,7 @@ menu:
                                                                             "Semi-lie : He’s a friend":
                                                                                 jump choice21_yes
                                                                                 label choice21_yes:
-                                                                                    show brandon_neutral
+                                                                                    
                                                                                     self "We are close friends from back in the orphanage and I came to find him."
                                                                                     show soldier
                                                                                     soldierB "So, you’re friends with Ian.."
@@ -280,17 +280,33 @@ menu:
                                                                 "Act clueless":
                                                                     jump choice2_no
                                                                     label choice2_no:
-                                                                        narrator "Interrogators become suspicious but have no concrete evidence."
+                                                                        show soldier
+                                                                        soldierA " Do you realise what those documents are?"
+                                                                        hide soldier
+                                                                        self "Oh, these? I thought they were just routine reports. Am I not supposed to have them?"
+                                                                        show soldier
+                                                                        soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+                                                                        hide soldier
                                                                         menu: 
-                                                                            "Show further confusion":
+                                                                            "Show confusion":
                                                                                 jump choice212_yes
                                                                                 label choice212_yes:
-                                                                                    narrator "I don’t understand.. How are they important? Can you explain"
-                                                                                    narrator "Interrogators explains, giving you time to gather information."
-                                                                                    narrator "Feign ignorance and escape"
-                                                                                    narrator "I’m sorry, I didn’t know. I’ll be more careful. I thought i was just doing the right thing.."
-                                                                                    narrator "We will let you off for now. Let this be a warning."
-                                                                                    narrator "You are let off with a warning but you are also underestimated"
+                                                                                    self "I don’t understand.. How are they important? Can you explain"
+                                                                                    show soldier
+                                                                                    soldierA "You really don’t know what you’re holding, do you?"
+                                                                                    hide soldier
+                                                                                    self "No, I honestly don’t. They just looked like regular reports to me. Is there something special about them?"
+                                                                                    show soldier
+                                                                                    soldierA "These ‘regular reports’ are strategic assessments—highly sensitive intel. They outline potential vulnerabilities in our operations, detailed coordinates, and troop movements. Information like this in the wrong hands could jeopardize entire missions"
+                                                                                    hide soldier
+                                                                                    self "Oh... I had no idea. I swear, I wasn’t trying to snoop or anything. I’m just new and trying to get up to speed. I didn’t realize how serious this was.."
+                                                                                    show soldier
+                                                                                    soldierA "This isn’t something to take lightly. You’re lucky we’re not treating this as espionage... yet. Stay away from documents like these unless you’re cleared to handle them."
+                                                                                    hide soldier
+                                                                                    self "Absolutely! I’ll be more careful. I didn’t mean to cause any trouble. Thank you for explaining."
+                                                                                    show soldier
+                                                                                    soldierA "You are let off with a warning but you are also underestimated"
+                                                                                    hide soldier
                                                                                 jump choice12_no
                                                                                 label choice212_done:
 

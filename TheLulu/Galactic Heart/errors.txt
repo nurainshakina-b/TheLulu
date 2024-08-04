@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 272: expected 'label_name' not found.
-    jump jump choice22_done
-        ^
+File "game/script.rpy", line 304: expected statement.
+    soldierA
+            ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 15:33:57 2024
+Sun Aug  4 16:43:54 2024

@@ -152,6 +152,23 @@ screen grand_screen_2_jail():
 
             #hover_sound""
 
+screen grand_screen_3():
+    modal True
+    frame:
+        xsize 800
+        ysize 400
+        xalign 0.5 yalign 0.5
+        text "Act 3 - The Confrontation ":
+            xalign 0.5
+            
+        textbutton "Click here to continue":
+            xalign 0.5 ypos 150
+            action Hide("grand_screen_3")
+
+            #hover_sound""
+
+            
+
 
 
 screen say(who, what):
