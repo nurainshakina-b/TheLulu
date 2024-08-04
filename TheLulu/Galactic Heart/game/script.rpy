@@ -27,12 +27,22 @@ image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
 
+image zander_netural_darken:
+    'zander_neutral.png'
+    matrixcolor BrightnessMatrix(-0.8)
+
+image soldier_darken:
+    'soldier.png'
+    matrixcolor BrightnessMatrix(-0.8)
+
 default player_trust = 50
 default player_trust_max = 100
 
-
+init:
+    $ screen_center = Position(xpos=0.5, ypos=1.15)
+    $ screen_left = Position(xpos=0.25, ypos=1.12)
+    $ screen_right = Position(xpos=0.75, ypos=1.15)
  
-
 # The game starts here.
 
 label start:    
@@ -46,8 +56,6 @@ label start:
     with fade
     hide planetA
     
-
-
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png"to the images
@@ -85,16 +93,16 @@ label start:
     show bg_command_base_blur
     with fade
 
-    show connor_neutral
+    show connor_neutral at screen_center
     with vpunch
 
     connor "Reports from our allies indicate a rise in resource theft. All evidence points to Solara as the perpetrator."
     connor "Intelligence suggests Gaiarise is their next target. You’re one of our top agents, and this mission falls on you."
-    hide connor_neutral
+    hide connor_neutral 
 
     self "What’s the mission?"
 
-    show connor_neutral
+    show connor_neutral at screen_center
     connor """You’re going undercover in Solara. We’re embedding you in their military.
 
     Your job is to infiltrate and dig up whatever you can on their plans.
@@ -103,7 +111,7 @@ label start:
     hide connor_neutral
 
     self "Izek? After all this time? We haven’t heard from him in ages."
-    show connor_neutral
+    show connor_neutral at screen_center
     connor "I know it’s been a while. But we need answers, and we need him back."
     connor "Whether he’s alive or… not, just bring him home."
     connor "This ring is fingerprint-activated. It’s your signal for the siege of Solara."
@@ -117,7 +125,7 @@ label start:
     with fade
     with hpunch
 
-    show zander_neutral at truecenter
+    show zander_neutral at screen_center
     self "Training life starts. I come across Zander, my new roommate."
     hide zander_neutral
     
@@ -129,7 +137,7 @@ menu:
         label choice1_yes:
             $ menu_flag = False
             self "So... are you my roommate?"
-            show zander_neutral
+            show zander_neutral at screen_center
             zander "Yeah."
             hide zander_neutral
             self "Okay..."
@@ -170,17 +178,17 @@ menu:
                                                 self "These documents. I need to send them back to command base."
                                                 play sound "audio/Door Open.mp3" volume 0.8
                                                 self "Oh damn."
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 with hpunch
                                                 with vpunch
                                                 brandon "What are you doing here? Aren’t you a trainee? You’re not authorised to be in here."
                                                 hide brandon_neutral
                                                 self "Oh, I did not know."
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 brandon "These are top secret information. How did you get in here?"
                                                 hide brandon_neutral
                                                 self "I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 brandon "So you didn’t want to cause trouble.  What’s that you’re holding?"
                                                 hide brandon_neutral
                                                 thoughts "{i}How do I get out of this?{\i}"                                             
@@ -191,16 +199,16 @@ menu:
                                                         label choice15_yes:
 
                                                         self "Can’t you let me off? I just got lost."
-                                                        show brandon_neutral
+                                                        show brandon_neutral at screen_center
                                                         brandon "You got lost? And somehow ended up with those classified papers in your hands?"
                                                         hide brandon_neutral
                                                         self "I... I didn’t mean any harm. I’ll do anything to make it right. Please, just let me off the hook. I mean... you’re a good-looking guy. Maybe we could work something out?"
-                                                        show brandon_neutral
+                                                        show brandon_neutral at screen_center
                                                         brandon "Flattery won’t get you far, but I have to admit, you’ve got guts. Still, you’re in deep water here. What exactly are you offering?"
                                                         hide brandon_neutral
                                                         narrator "I lean in closer to him, my voice softening-"
                                                         self "Whatever you want. I just don’t want any trouble... and I’d really hate for this to ruin our first impression. Maybe we could come to a... mutual understanding?"
-                                                        show brandon_smirk
+                                                        show brandon_smirk at screen_center
                                                         with easeinright
                                                         brandon "I have a wife and two kids. I know I look like this but I am loyal to them. Come on. I’m sending you down to the cells."
                                                         hide brandon_smirk
@@ -222,23 +230,23 @@ menu:
                                                                 "Ask them questions":
                                                                     jump choice2_yes
                                                                     label choice2_yes:
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierA "Are you not going to talk?"
                                                                         hide soldier
                                                                         self "I have questions of my own. I’ll talk if you agree to answer mine too."
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierA "You’re in no position to be making deals."
                                                                         hide soldier
                                                                         self "Do you know Ian(Agent Izek’s undercover name)?"
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierB "Ian? What does he have to do with this?"
                                                                         hide soldier
                                                                         self "He’s someone I heard about—a name that came up in some old reports. Thought he might be useful to mention. Any idea where he is now?"
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierB "Ian’s not someone you just ‘hear about. No one’s seen him in ages, but those who do... well, let’s just say he’s not someone to be crossed"
                                                                         hide soldier
                                                                         self "So he’s still around then? I heard he was good at what he did."
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierB "(scoffs) Good? That’s an understatement. If you’re asking about Ian, you’re treading dangerous ground. Why the sudden interest?"
                                                                         soldierB "What and how do you know of him?"
                                                                         hide soldier                
@@ -249,30 +257,30 @@ menu:
                                                                                 label choice21_yes:
                                                                                     
                                                                                     self "We are close friends from back in the orphanage and I came to find him."
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierB "So, you’re friends with Ian.."
                                                                                     hide soldier
                                                                                     self "Yea..You know him, right?"
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "We’re familiar. And now that we know you’re close. We can put you to use too."
                                                                                     hide soldier
                                                                                     self "Huh... Okay.."
 
                                                                                     narrator "As the questioning ends, they report this situation to their commander. A familiar face."
 
-                                                                                    show izek_neutral
+                                                                                    show izek_neutral at screen_center
                                                                                     ian "What’s this? "
                                                                                     hide izek_neutral
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "We have a trainee who we believe is in connection with you and believe that she might be useful for the upcoming mission... Do you recognise her?"
                                                                                     hide soldier
-                                                                                    show izek_neutral
+                                                                                    show izek_neutral at screen_center
                                                                                     ian "...I do. So, she’s here?"
                                                                                     hide izek_neutral
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "Yes, sir. She’s currently waiting for further instructions."
                                                                                     hide soldier
-                                                                                    show izek_neutral
+                                                                                    show izek_neutral at screen_center
                                                                                     ian "Send her in. I’ll run through the details of the mission myself."
                                                                                     hide izek_neutral
 
@@ -283,20 +291,20 @@ menu:
                                                                                 jump choice21_no
                                                                                 label choice21_no:
                                                                                     self "We are romantically involved !"
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "You and Ian? Okay, I’ve heard enough from you for today."
                                                                                     hide soldier
                                                                                     self "You’re going to let me off?"
-                                                                                    show soldier 
+                                                                                    show soldier at screen_center
                                                                                     soldierA "No, you’re going back to the cell. We will continue this tomorrow."
                                                                                     hide soldier
                                                                                     narrator "As the questioning ends, they report this situation to their commander. A familiar face."
                                                                                     self "What’s happening? Where are you taking me now... "
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "The commander wants to see you. "
                                                                                     hide soldier
                                                                                     self "The commander?...It’s you. How?"
-                                                                                    show izek_neutral
+                                                                                    show izek_neutral at screen_center
                                                                                     ian "The rest of you can leave. It seems like we have some reconnecting to do, right?"
                                                                                     self "Izek..! You’re okay... And alive?"
                                                                                     ian "As you can see, I am more than okay. So, tell me, how did you end up here... my lover?"
@@ -314,11 +322,11 @@ menu:
                                                                 "Act clueless":
                                                                     jump choice2_no
                                                                     label choice2_no:
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierA "Do you realise what those documents are?"
                                                                         hide soldier
                                                                         self "Oh, these? I thought they were just routine reports. Am I not supposed to have them?"
-                                                                        show soldier
+                                                                        show soldier at screen_center
                                                                         soldierA"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
                                                                         hide soldier
                                                                         menu: 
@@ -326,19 +334,19 @@ menu:
                                                                                 jump choice212_yes
                                                                                 label choice212_yes:
                                                                                     self "I don’t understand.. How are they important? Can you explain"
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "You really don’t know what you’re holding, do you?"
                                                                                     hide soldier
                                                                                     self "No, I honestly don’t. They just looked like regular reports to me. Is there something special about them?"
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "These ‘regular reports’ are strategic assessments—highly sensitive intel. They outline potential vulnerabilities in our operations, detailed coordinates, and troop movements. Information like this in the wrong hands could jeopardize entire missions"
                                                                                     hide soldier
                                                                                     self "Oh... I had no idea. I swear, I wasn’t trying to snoop or anything. I’m just new and trying to get up to speed. I didn’t realize how serious this was.."
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "This isn’t something to take lightly. You’re lucky we’re not treating this as espionage... yet. Stay away from documents like these unless you’re cleared to handle them."
                                                                                     hide soldier
                                                                                     self "Absolutely! I’ll be more careful. I didn’t mean to cause any trouble. Thank you for explaining."
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "You are let off with a warning but you are also underestimated"
                                                                                     hide soldier
                                                                                     show screen grand_screen_2
@@ -349,11 +357,11 @@ menu:
                                                                                 jump choice212_no
                                                                                 label choice212_no:
                                                                                     self "I’m new here, remember? I was just doing some filing and grabbed the wrong stack. Honest mistake. I didn’t even get a chance to look at what’s inside."
-                                                                                    show soldier
+                                                                                    show soldier at screen_center
                                                                                     soldierA "You had better hope that’s true. We don’t take security breaches lightly."
                                                                                     hide soldier
                                                                                     self "Security breach? I swear, it was just a mix-up. I wouldn’t know what to do with classified documents if they fell in my lap!"
-                                                                                    show soldier 
+                                                                                    show soldier at screen_center
                                                                                     soldierA "You’re on thin ice. Make sure this doesn’t happen again."
                                                                                     hide soldier
                                                                                     self "Absolutely. I’ll be more careful. Thank you for understanding."
@@ -368,15 +376,15 @@ menu:
                                                         jump choice15_no
                                                         label choice15_no:
                                                         self "Can’t you let me off? I was just curious about what this was all about."
-                                                        show brandon_neutral
+                                                        show brandon_neutral at screen_center
                                                         brandon "Why did you need to know? "
                                                         hide brandon_neutral
                                                         self "I’m new here, and honestly, a bit of an overachiever. I just wanted to be prepared. Please, just this once, let it slide. I’ll make it worth your while—Celestium, as much as you want. Name your price."
-                                                        show brandon_neutral
+                                                        show brandon_neutral at screen_center
                                                         brandon "Alright, I’ll let it go. This’ll help my family… but it’s going to cost you."
                                                         hide brandon_neutral
                                                         self "Okay so 50 Celestium anytime? "
-                                                        show brandon_neutral
+                                                        show brandon_neutral at screen_center
                                                         with vpunch
                                                         brandon "You got yourself a deal."
                                                         brandon "You’re playing a dangerous game, Alia. But maybe I can be persuaded... this time. Just remember, I’m not as easy to sway as you might think. If you get caught again, you’re on your own."
@@ -396,16 +404,16 @@ menu:
                                                 $ menu_flag = False
                                                 self "Wait, these seem to be the only copies they have. I could just erase the coordinates."
                                                 play sound "audio/Door Open.mp3" volume 0.8
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 with hpunch
                                                 brandon "What are you doing here? Aren’t you a trainee? You’re not authorised to be in here."
                                                 hide brandon_neutral
                                                 self "Oh, I did not know."
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 brandon "Mind you trainee, only a higher personnel like myself and your sergeant majors could enter in here and not the likes of you. So.. how did you get in here?"
                                                 hide brandon_neutral
                                                 self "I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
-                                                show brandon_neutral
+                                                show brandon_neutral at screen_center
                                                 brandon "Don’t come in here unless you were told to again. The Combat Simulation Chamber is right around the corner. Now, go your training is about to start."
                                                 hide brandon_neutral
                                                 show screen grand_screen_2
@@ -475,11 +483,11 @@ menu:
                                 play sound "audio/Fighting.mp3" volume 0.8 
                                 with Pause (0.8) 
                                 self "Yes! I made him slip."
-                                show soldier
+                                show soldier at screen_center
                                 faceless "Did you see that? What is happening?"
                                 hide soldier
                                 self "Huh, this is good. Everyone’s is getting nervous. It’s time to end this."
-                                show soldier
+                                show soldier at screen_center
                                 soldierA "Trainee Alia has completed her training. Good job, trainee."
                                 hide soldier
                                 self "Thanks."
@@ -495,14 +503,14 @@ menu:
 
                                 #TODO if condition
                                 #if player stole documents in act 1,
-                                show brandon_neutral
+                                show brandon_neutral at screen_center
                                 brandon "Ha... It’s you again. What are you doing here? You’re not authorised to be in here."
                                 self """Oh, I did not know. 
                                 
                                 I was looking around and I got lost. I did not mean to cause trouble."""
                                 brandon "That excuse is not gonna work on me the second time."
                                 hide brandon_neutral
-                                show brandon_smirk
+                                show brandon_smirk at screen_center
                                 brandon """And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
     
                                 Let’s go. You’re going to the cell today."""
@@ -523,7 +531,7 @@ menu:
                                 self "I was looking around and I got lost. I did not mean to cause trouble."
                                 brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
                                 hide brandon_neutral
-                                show brandon_slightsmile
+                                show brandon_slightsmile at screen_center
                                 brandon "Let’s go. You’re going to the cell today."
                                 thoughts "{i}Shoot.{\i}"
                                 hide brandon_slightsmile
@@ -546,14 +554,14 @@ menu:
                                         narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
                                         #TODO update node below
                                         self "What’s happening? Where are you taking me now? "
-                                        show soldier
+                                        show soldier at screen_center
                                         soldierA "Commander Ian, please excuse my leave."
 
                                         #SFX DOOR CLOSE
                                         self "Ize.. "
                                         self "I mean Ian. What are you doing here? This can’t be true... You’re the commander now?"
                                         hide soldier
-                                        show izek_neutral
+                                        show izek_neutral at screen_center
                                         ian " I am.. How did you end up here?"
 
                                         
@@ -629,7 +637,7 @@ menu:
                                                 izek """Do it. It’s okay.
 
                                                 I know it’s going to be harder to convince them now, but I will never blame you. Do what you have to do."""
-                                                show izek_slightsmile
+                                                show izek_slightsmile at screen_center
                                                 izek "Just... please stay safe, Alia."
 
                                                 show planetboth
@@ -655,11 +663,13 @@ menu:
                                     thoughts """{i}Let’s get through this quickly. So, we have to climb the ranks?
 
                                     Maybe it’s smarter to work with the others... My roommate, Zander, and Jay? {\i}"""
-                                    show soldier
-                                    show zander_neutral
+                                    show soldier at screen_left
+                                    show zander_netural at screen_right 
                                     self "Do you guys want to work together?"
                                     jay "That would be a great help. I’ve been struggling to keep up on my own."
-                                    show zander_slightsmile
+                                    hide zander_netural at screen_right
+                                    show soldier_darken at screen_left
+                                    show zander_slightsmile at screen_right 
                                     zander "Sure, why not? Could be interesting to see how we handle this as a team."
                                     self "Great. Let’s get this training over and done with, then."
 
@@ -686,9 +696,16 @@ menu:
                                             jump choice221_yes
                                             label choice221_yes:
                                                 self "When was this?"
-                                                show zander_neutral
+                                                hide zander_slightsmile at screen_right 
+                                                show zander_neutral at screen_right
                                                 zander "It was 3-4 years ago..? It was right before I got in, really."
+                                                show zander_netural_darken at screen_right
+                                                hide soldier_darken at screen_left
+                                                show soldier at screen_left
                                                 jay "I mean there were rumours that there people trying to cover up the whole thing"
+                                                show soldier_darken at screen_left
+                                                hide zander_netural_darken at screen_right
+                                                show zander_neutral at screen_right
                                                 zander """Yeah, I remember something about that. Saw some big meeting happening among the leaders at the holo-conferencing room.
 
                                                 I almost got into trouble for poking around there."""
@@ -736,7 +753,7 @@ menu:
 
                                                                 While I continue fighting on, the First Commander was lurking in the shadows unbeknownst to me."""
                                                                 
-                                                                show izek_neutral
+                                                                show izek_neutral at screen_center
                                                                 izek """I detest attending these kind of events but let’s see what the trainees got.
 
                                                                 Last two standing, finally. Hmm... That fighting style..! It’s so familiar.
@@ -745,7 +762,7 @@ menu:
 
                                                                 I want that trainee’s documents. Send them to my office, {i}now{\i}."""
                                                                 soldierB "Yes, sir. Will she be going for the mission? "
-                                                                show izek_slightsmile
+                                                                show izek_slightsmile at screen_center
                                                                 izek """Yes. I can already tell she’s going to win...
 
                                                                 {i}I taught her, after all.{\i}
@@ -760,7 +777,7 @@ menu:
                                             jump choice221_no
                                             label choice221_no:
                                                 self "What did he look like?"
-                                                show zander_neutral
+                                                show zander_neutral at screen_center
                                                 zander """Some said he had dark hair, others swore he was blonde.
 
                                                 Honestly, we don’t really know. The story’s been passed down so much, it’s hard to say what’s accurate anymore."""
@@ -786,23 +803,23 @@ menu:
         label choice1_no:
             $ menu_flag = True
             self "Hey... I’m Alia and I’m new here. What’s your name? "
-            show zander_neutral
+            show zander_neutral at screen_center
             zander "Oh hey, Zander here. Do you want me to show you around? "
             hide zander_neutral
             self "That’d be great, thanks..!"
             show bg_corridor_blur
             with fade
-            show zander_neutral
+            show zander_neutral at screen_center
             zander """So, here’s the Neural Lounge— it’s our version of a break room. You can decompress and clear your mind from a tough mission here.
 
             Over there, we have the Holo-Conferencing Room. That’s where we sync commands across the galaxy in real-time."""
             hide zander_neutral
             self "Impressive... What’s next?"
-            show zander_neutral
+            show zander_neutral at screen_center
             zander "Now, we’re heading to the Combat Simulation Chamber. It’s where you’ll be training."
             hide zander_neutral
             self "Cool... So, is training tough? "
-            show zander_neutral
+            show zander_neutral at screen_center
             zander """Let’s just say, the Simulation Chamber adapts to your skill level.
 
             You’ll be facing everything from basic drills to full-scale virtual invasions.
@@ -826,21 +843,21 @@ menu:
         narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
         #TODO update node below
         self "What’s happening? Where are you taking me now? "
-        show soldier
+        show soldier at screen_center
         soldierA "Commander Ian, please excuse my leave."
 
         #SFX DOOR CLOSE
         self "Ize.. "
         self "I mean Ian. What are you doing here? This can’t be true... You’re the commander now?"
         hide soldier
-        show izek_neutral
+        show izek_neutral at screen_center
         ian " I am.. How did you end up here?" 
         menu:
             "Reveal plans":
                 jump choice311_yes
                 label choice311_yes:
                     self "If you remember me, then you would know I came to find you"
-                    show izek_slightsmile
+                    show izek_slightsmile at screen_center
                     izek "I could never forget you. But is that all there is?"
                     self "I came to find you, to get you out of Solara! You don’t belong here, Izek!"
 
@@ -849,9 +866,9 @@ menu:
             "Ask questions":
                 jump choice311_no
                 label choice311_no:
-                    show izek_neutral
+                    show izek_neutral at screen_center
                     self "What happened to you? I thought you were dead?"
-                    show izek_slightsmile
+                    show izek_slightsmile at screen_center
                     izek "I’m not dead but I have seen better days. It took awhile but I became the leader of Solara’s military."
                     hide izek_neutral
                 jump choice311_done
@@ -872,22 +889,22 @@ menu:
                             jump choice3111_no
                             label choice3111_no:
                                 self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
-                                show izek_neutral
+                                show izek_neutral at screen_center
                                 izek "I’ve been better... but I’m still standing. Glad to know you still care about me."
                                 hide izek_neutral
-                                show izek_slightsmile
+                                show izek_slightsmile at screen_center
                                 izek "Oh, wait. We’re lovers, right?"
                                 self """You know why I said that. It was my cover. I didn’t even know you were alive.
 
                                 Is your allegiance to Solara now?"""
                                 hide izek_slightsmile
-                                show izek_neutral
+                                show izek_neutral at screen_center
 
                                 izek """You know I wouldn’t do that. My loyalty will always be with Gaiarise and you.
 
                                 After all those years I helped you train, wouldn’t you know me well enough to not question my loyalty?"""
                                 self "I am not sure anymore."
-                                show izek_slightsmile
+                                show izek_slightsmile at screen_center
                                 izek """Well then, you should remember this- I have feelings for you. I wouldn’t do anything to hurt you.
 
                                 My emotions for you were real, and they haven’t changed."""
@@ -897,7 +914,7 @@ menu:
                                 self """We’re talking about loyalty and duty, not personal emotions.
 
                                 I need to know where you stand and what you’re really up to."""
-                                show izek_neutral
+                                show izek_neutral at screen_center
                                                                     
                                 izek """The people of Solara need help. The government is making us steal resources from other planets and it doesn’t even go to the people.
 
