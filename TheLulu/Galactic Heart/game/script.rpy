@@ -10,12 +10,14 @@ define narrator = Character("")
 define connor = Character("Commander Connor")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
-define ian = Character("Ian")
+define ian = Character("Commander Ian (AKA Izek)")
 define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
 define thoughts = Character("Thinks to self")
 define annoucer = Character("Annoucement")
+define soldierA = Character("Soldier A")
+define soldierB = Character("Soldier B")
 
 image planetA ="bg_planetA_blur.png"
 image planetB ="bg_planetB_blur.png"
@@ -195,23 +197,55 @@ menu:
                                                             narrator "Can you get out of it?  "
                                                             narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
                                                             menu:
-                                                                "Knowing that you got caught, you decide to use this opportunity to find out about Izek. Manipulate information out of them":
+                                                                #CHOICE2
+                                                                "Ask them questions":
                                                                     jump choice2_yes
                                                                     label choice2_yes:
-                                                                        show brandon_neutral
-                                                                        brandon "Are you not going to talk?"
-                                                                        narrator " Interrogators are intrigued and start revealing information about Ian (Agent Izek’s undercover name)"
-                                                                        narrator "Express familiarity with Ian"
-                                                                        hide brandon_neutral                
+                                                                        show soldier
+                                                                        soldierA "Are you not going to talk?"
+                                                                        hide soldier
+                                                                        self "I have questions of my own. I’ll talk if you agree to answer mine too."
+                                                                        show soldier
+                                                                        soldierA "You’re in no position to be making deals."
+                                                                        hide soldier
+                                                                        self "Do you know Ian(Agent Izek’s undercover name)?"
+                                                                        show soldier
+                                                                        soldierB "Ian? What does he have to do with this?"
+                                                                        hide soldier
+                                                                        self "He’s someone I heard about—a name that came up in some old reports. Thought he might be useful to mention. Any idea where he is now?"
+                                                                        show soldier
+                                                                        soldierB "Ian’s not someone you just ‘hear about. No one’s seen him in ages, but those who do... well, let’s just say he’s not someone to be crossed"
+                                                                        hide soldier
+                                                                        self "So he’s still around then? I heard he was good at what he did."
+                                                                        show soldier
+                                                                        soldierB "(scoffs) Good? That’s an understatement. If you’re asking about Ian, you’re treading dangerous ground. Why the sudden interest?"
+                                                                        soldierB "What and how do you know of him?"
+                                                                        hide soldier                
                                                                         menu:
-                                                                            "How did you know him? Who are you to him?"
 
-                                                                            "Tell a semi -lie and that say he is a friend you’ve been searching for.":
+                                                                            "Semi-lie : He’s a friend":
                                                                                 jump choice21_yes
                                                                                 label choice21_yes:
                                                                                     show brandon_neutral
-                                                                                    brandon "We are close friends back in the orphanage and I came to find him"
-                                                                                    narrator "Interrogators are intrigued and devise a plan to use you for further operations."
+                                                                                    self "We are close friends from back in the orphanage and I came to find him."
+                                                                                    show soldier
+                                                                                    soldierB "So, you’re friends with Ian.."
+                                                                                    hide soldier
+                                                                                    self "Yea..You know him, right?"
+                                                                                    show soldier
+                                                                                    soldierA "We’re familiar. And now that we know you’re close. We can put you to use too."
+                                                                                    hide soldier
+                                                                                    self "Huh... Okay.."
+
+                                                                                    narrator "As the questioning ends, they report this situation to their commander. A familiar face."
+
+                                                                                    show izek_neutral
+                                                                                    ian "What’s this? "
+                                                                                    hide izek_neutral
+                                                                                    show soldier
+                                                                                    soldierA ""
+
+                                                                                    #old structure
                                                                                     narrator "You become a trusted agent (although you are not sure why)"
                                                                                     hide brandon_neutral
                                                                                     show brandon_neutral
@@ -243,7 +277,8 @@ menu:
                                                                     jump choice2_done
 
 
-                                                                "You can still escape this if you play your cards right. Lie and act clueless":
+                                                                #CHOICE2
+                                                                "Act clueless":
                                                                     jump choice2_no
                                                                     label choice2_no:
                                                                         narrator "Interrogators become suspicious but have no concrete evidence."

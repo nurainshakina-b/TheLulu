@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 188: end of line expected.
-    show screen screen grand_screen_2_jail(0)
-                       ^
+File "game/script.rpy", line 242: expected statement.
+    ian 
+        ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Sun Aug  4 15:08:25 2024
+Sun Aug  4 15:27:10 2024
