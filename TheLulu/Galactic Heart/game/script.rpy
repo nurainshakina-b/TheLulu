@@ -15,9 +15,10 @@ define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
 define thoughts = Character("Me")
-define annoucer = Character("Annoucement")
+define announcer = Character("Annoucement")
 define soldierA = Character("Soldier A")
 define soldierB = Character("Soldier B")
+define soldierC = Character("Soldier C")
 define faceless = Character("Faceless Soldier")
 
 image planetA ="bg_planetA_blur.png"
@@ -641,30 +642,51 @@ menu:
                             "Build bridges":
                                 jump choice22_no
                                 label choice22_no:
-                                    narrator "Push other to work together"
-                                    self "We should all work together"
-                                    narrator"Strengthen current bonds with Jay and Zander"
-                                    narrator "Your bond led to finding out information about Izek and more about the people of Solara"
-                                    show brandon_neutral
-                                    brandon "Did you guys hear about the story of the guy who died here?"
-                                    hide brandon_neutral
-                                    self "“What? Someone died? Who”"
+                                    thoughts """{i}Let’s get through this quickly. So, we have to climb the ranks?
+
+                                    Maybe it’s smarter to work with the others... My roommate, Zander, and Jay? {\i}"""
+                                    show soldier
+                                    show zander_neutral
+                                    self "Do you guys want to work together?"
+                                    jay "That would be a great help. I’ve been struggling to keep up on my own."
+                                    show zander_slightsmile
+                                    zander "Sure, why not? Could be interesting to see how we handle this as a team."
+                                    self "Great. Let’s get this training over and done with, then."
+
+                                    #TODO fade in out to black
+
+                                    narrator "During training,"
+                                    jay "You know, it’s kinda bone-chilling when you think about the fact that people have died here..."
+                                    self "What? People died here? In training? Isn’t it just... training?"
+                                    zander """Did you guys hear about that one guy? Pretty sure he died during this training.
+
+                                    Word is, he was climbing the ranks too fast, and some folks didn’t like it."""
+                                    self "Who was it? It can’t be that serious... right?"
+                                    zander """Apparently he was making waves, moving up faster than the others.
+
+                                    Then, during combat training, something went wrong—a freak accident, they say.
+    
+                                    But who knows?
+
+                                    Some people here play dirty when they feel threatened."""
+                                    jay "Makes you wonder if we should be more careful... or more ruthless."
 
                                     menu:
-                                        "Ask about when it happen":
+                                        "Ask about when it happened":
                                             jump choice221_yes
                                             label choice221_yes:
                                                 self "When was this?"
-                                                show brandon_neutral
-                                                brandon "Like 3- 4 years ago ish..?"
-                                                brandon "I mean there were rumours that there people trying to cover up the whole thing"
-                                                brandon "I remember seeing some big meeting  happening among the leaders at A2 ll meeting room. I almost got into trouble there."
-                                                hide brandon_neutral
-                                                self  "Huh...interesting..."
-                                                narrator "Through the conversation, you find out about the meeting room."
-                                                narrator "You are motivated now that you learn something crucial. You urge your teammates to complete the training so they could have a break ."
-                                                self "That's enough, lets get through this fast so that we could get a break.."
-                                                narrator "Comeplete the training"
+                                                show zander_neutral
+                                                zander "It was 3-4 years ago..? It was right before I got in, really."
+                                                jay "I mean there were rumours that there people trying to cover up the whole thing"
+                                                zander """Yeah, I remember something about that. Saw some big meeting happening among the leaders at the holo-conferencing room.
+
+                                                I almost got into trouble for poking around there."""
+                                                self  "Huh, interesting..."
+                                                self "Anyway, that’s enough. Let’s get through this fast so that we could get a break."
+                                                 #TODO fade in out to black
+
+                                                soldierA "Trainee Alia, Trainee Zander, Trainee Jay, training is completed. Good job, trainees."
                                                 jump choice221_done
                                                 label choice221_done:
                                                     menu: 
@@ -677,17 +699,19 @@ menu:
                                                         "Stay with teammates":
                                                             jump choice222_no
                                                             label choice222_no:
-                                                                narrator "Announcement bell rang"
-                                                                annoucer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring."
-                                                                narrator "Heads to the training grounds, where they gave a boring speech to start off."
-                                                                show bg_training_rm_blur
-                                                                with fade
-                                                                annoucer "Welcome trainees to the Annual Solara Trainee Sparring. Everyone is required to attend. Fight till one is left standing. The winner will receive an opportunity to lead our upcoming mission alongside our Commander"
-                                                                narrator "Proceeds to fight"
-                                                                self "Well looks like this will be a breeze. Let’s give my all then! "
-                                                                narrator "Became the last pair standing"
-                                                                self "So close to the finishing line. I can’t give up yet."
-                                                                narrator "Managed to defeat the other trainee and became the winner of Solara’s Annual Trainee Sparring"
+                                                
+                                                                #BELL SFX
+                                                                announcer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring."
+                                                                soldierC """Welcome, trainees, to the Annual Solara Trainee Sparring.
+
+                                                                Attendance is mandatory. The rules are simple: fight until only one remains standing.
+
+                                                                The winner will earn the opportunity to lead our upcoming mission alongside our First Commander."""
+
+                                                                #TODO TO CONTINUE
+                                                                zander "No one’s ever met the First Commander. But a whole mission? This might be interesting."
+                                                                jay "Yeah... I’m not even going to try. You guys go ahead. I’ll be here watching."
+                                                                self "Well, looks like this will be a breeze. Let’s give my all then!"
                                                                 
                                                                 narrator "Izek stood by the sidelines at the training ground while listening to the boring opening ceremony"
                                                                 show izek_neutral
@@ -702,18 +726,22 @@ menu:
                                             label choice221_no:
                                                 self "What did he look like?"
                                                 show zander_neutral
-                                                zander "Some said he had dark hair and some said he was blonde.. honestly we don’t really know. The story is been pass down a lot, we don’t really know if its accurate.."
-                                                zander "You’re really into this huh.."
+                                                zander """Some said he had dark hair, others swore he was blonde.
 
-                                                hide zander_neutral
-                                                narrator "Through the  conversation you find out how the people of Solara are against the rulers and are suffering."
-                                                zander "But yeah its not surprising that the government do nothing about it.."
-                                                zander "I bet they kept the higher up silent about it too"
+                                                Honestly, we don’t really know. The story’s been passed down so much, it’s hard to say what’s accurate anymore."""
+                                                jay "You’re really into this huh.."
+                                                self "I mean, yeah. Somebody died?! That’s not exactly something you just brush off."
+                                                jay "But yeah, it’s not surprising the government did nothing about it. That’s just how things work around here."
+                                                zander "I bet they kept the higher up silent about it too."
                                                 self "Why do you say that?"
-                                                zander "I mean don’t you know our government doesn’t care about our people..."
-                                                self "Ohh right right...You know for being such a hater...why are you even here? You’re not exactly err.. soldier material?"
-                                                zander "I had too. For my family.You understand right.."
-                                                self ".. I mean yeaa yeaa.."
+                                                jay "I mean, don’t you know? Our government doesn’t care about its people. We’re just cogs in the machine to them."
+                                                self """Oh, right, right... But you know, for being such a hater... why are you even here?
+                                                You’re not exactly, err... soldier material? No offence."""
+                                                jay "I have to. For my family. You understand, right?."
+                                                self "Yeah, I get it. We all have our reasons."
+                                                self "Anyway, that’s enough. Let’s get through this."
+                                                soldierA "Trainee Alia, Trainee Zander, Trainee Jay, training is completed. Good job, trainees."
+
                                                 jump choice222_no
                         jump choice2_done
 
