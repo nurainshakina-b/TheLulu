@@ -307,15 +307,25 @@ menu:
                                                                                     show soldier
                                                                                     soldierA "You are let off with a warning but you are also underestimated"
                                                                                     hide soldier
-                                                                                jump choice12_no
+                                                                                    show screen grand_screen_2
+                                                                                jump choice2p2
                                                                                 label choice212_done:
 
                                                                             "Deflect Questions":
                                                                                 jump choice212_no
                                                                                 label choice212_no:
-                                                                                    narrator "I thought I was just doing my job.. I was just following orders. Can I go now?"
-                                                                                    narrator "You are released but will be closely monitored."
-                                                                                jump choice12_no
+                                                                                    self "I’m new here, remember? I was just doing some filing and grabbed the wrong stack. Honest mistake. I didn’t even get a chance to look at what’s inside."
+                                                                                    show soldier
+                                                                                    soldierA "You had better hope that’s true. We don’t take security breaches lightly."
+                                                                                    hide soldier
+                                                                                    self "Security breach? I swear, it was just a mix-up. I wouldn’t know what to do with classified documents if they fell in my lap!"
+                                                                                    show soldier 
+                                                                                    soldier "You’re on thin ice. Make sure this doesn’t happen again."
+                                                                                    hide soldier
+                                                                                    self "Absolutely. I’ll be more careful. Thank you for understanding."
+                                                                                    thoughts "That was close but they’re going to keep a closer eye on me now."
+                                                                                    show screen grand_screen_2
+                                                                                jump choice2p2
 
                                                                     jump choice2_done
 
