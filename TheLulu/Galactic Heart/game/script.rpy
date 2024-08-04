@@ -160,7 +160,7 @@ menu:
                         stop music fadeout 1.0
                         play music "audio/Half Mystery.mp3" volume 0.5 loop
                         $ menu_flag = True
-                        show bg_meeting_rm_blur
+                        show meetingrm
                         with fade
                         self "What’s this? Oh, damn..."
                         self "These are coordinates and secret pathways to Astralis and Lunara—Gaiarise’s allies."
