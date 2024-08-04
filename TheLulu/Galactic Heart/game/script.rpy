@@ -531,16 +531,25 @@ menu:
                                         #TODO update node below
                                         self "What is going on... No this can’t be!"
                                         narrator "You are suspicious"
-                                        jump choice3_liecut
-                                        label choice3_liecut:
-                                        narrator "Confront him"
-                                        self "I can’t believe you would do this.. You really betrayed us?"
-                                        show izek_neutral
-                                        izek "I did no such thing. I still stand with Gaiarise."
-                                        narrator "Izek reveals his plans and what he has been doing"
-                                        izek "Its just plans changed. The people of Solara don’t deserve this. They need help... I have a plan to get rid of the corrupt."
-                                        self "... and what? You’re not corrupted?"
-                                        izek "Do you really think i would do that to my home planet? ... To you? I have a plan and now that I know you’re here. You can help. Believe me Pleasee.."
+                                        jump choice3_general
+                                        label choice3_general:
+
+                                        self "I can’t believe you would do this.. You really betrayed us? You betrayed Gaiarise?"
+                                        izek """I did no such thing. I still stand with Gaiarise. But the plan changed. 
+
+                                        The people of Solara don’t deserve what’s coming. They need help... and I have a plan to root out the corruption."""
+                                        self "...and what? You’re telling me you’re not corrupted yourself? After everything?"
+                                        izek """Do you really think I would betray my home planet? Betray you?
+
+                                        I’m doing this to save them. To save Gaiarise.
+
+                                        I have a plan, a way to tear down the corrupt system from within."""
+                                        self "And you want me to believe you after all this?"
+                                        izek """Yes. I need you to believe me.
+
+                                        Now that I know you’re here, you can help. Together, we can make this right.
+
+                                        Please, Alia. Trust me."""
                                         
                                         #calculated trust point determines, need to research
                                         menu:
@@ -579,6 +588,8 @@ menu:
                                                     label choice31_done:
                                             #Low score of trust points
                                             "Do not believe him":
+                                                jump choice31_no
+                                                label choice31_no:
                                                 self "I can’t believe this, Izek!"
                                                 izek "Listen, it’s not what you think... I wouldn’t betray you or Gaiarise. Please, just hear me out—"
                                                 self """You really think I’ll listen to you after all this? I can’t risk it, Ian.
@@ -596,23 +607,21 @@ menu:
 
                                                 show planetboth
 
-                                                jump choice31_no
-                                                label choice31_no:
-                                                    narrator """While all is well for Gaiarise, it has been revealed how corrupted the government of Solara is.
+                                                narrator """While all is well for Gaiarise, it has been revealed how corrupted the government of Solara is.
 
-                                                    The siege might have been a saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along. 
+                                                The siege might have been a saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along. 
 
-                                                    As for Izek, his loyalty is still a question. However, he never blamed me for his current situation.
+                                                As for Izek, his loyalty is still a question. However, he never blamed me for his current situation.
 
-                                                    He know it’s going to take a lot of convincing and evidence to prove his allegiance to Gaiarise. 
+                                                He know it’s going to take a lot of convincing and evidence to prove his allegiance to Gaiarise. 
 
-                                                    Due to high tensions, both of us were never able to share our feelings for one another.
+                                                Due to high tensions, both of us were never able to share our feelings for one another.
 
-                                                    With the stakes high, I am not willing to risk my planet, my home, even for the man I love."""
-                                                    narrator "Was it the right choice?"
-                                                    jump choice31_done
-                                        
-                                        jump choice3_lover
+                                                With the stakes high, I am not willing to risk my planet, my home, even for the man I love."""
+                                                narrator "Was it the right choice?"
+                                                jump choice31_done
+                                                jump choice3_lover
+
                                     #TODO change header
                                     "The Confrontation":
                                         label choice3_lover:
@@ -623,30 +632,28 @@ menu:
                                             hide brandon_neutral
                                             show izek_neutral
                                             izek "The rest can leave.. It seems like we have some reconnecting to do right?"
-                                            hide izek_neutral
                                             narrator "you are surprise and suspicious"
                                             self "You’re okay.. you are alive?"
-                                            show izek_neutral
                                             izek "As you can see I am better than okay.. soo how did you end up here ... lover"
-                                            hide izek_neutral
                                             self "You’re the commander now, the leader of the Solara military?"
                                             menu: 
-                                                "Reveal your plans":
+                                                "Reveal plans":
                                                     jump choice311_yes
                                                     label choice311_yes:
                                                         self "If you remember me, then you would know I came to find you"
-                                                        show izek_neutral
-                                                        izek "Is that all that is?"
-                                                        hide izek_neutral
-                                                        self "I came to find you!?"
-                                                        jump choice3_liecut
+                                                        show izek_slightsmile
+                                                        izek "I could never forget you. But is that all there is?"
+                                                        self "I came to find you, to get you out of Solara! You don’t belong here, Izek!"
 
-                                                "Find out more about him":
+                                                        jump choice3_general
+
+                                                "Ask questions":
                                                     jump choice311_no
                                                     label choice311_no:
-                                                        self "What happened to you? I thought you were dead?"
                                                         show izek_neutral
-                                                        izek "I became the leader..."
+                                                        self "What happened to you? I thought you were dead?"
+                                                        show izek_slightsmile
+                                                        izek "I’m not dead but I have seen better days. It took awhile but I became the leader of Solara’s military."
                                                         hide izek_neutral
                                                     jump choice311_done
                                                     label choice311_done:
@@ -654,7 +661,10 @@ menu:
                                                             "Show frustration":
                                                                 jump choice3111_yes
                                                                 label choice3111_yes:
-                                                                    self "Everyone has been worried about you ever since your contact got cut but it seems like I was worried sick for nothing. Glad to know."
+                                                                    self "Everyone has been worried about you ever since your contact got cut but it seems like I was worried sick for nothing."
+                                                                    self "Glad to know this was all just a waste of time."
+                                                                    izek "Good to know you still care, my lover."
+                                                                    self "I can’t believe you. You would do this... after everything?"
                                                                     #link to the nodes
                                                                 jump choice31_no
                                                                 label choice3111_done:
