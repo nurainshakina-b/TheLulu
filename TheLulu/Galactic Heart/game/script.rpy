@@ -740,8 +740,15 @@ menu:
                                                                 Attendance is mandatory. The rules are simple: fight until only one remains standing.
 
                                                                 The winner will earn the opportunity to lead our upcoming mission alongside our First Commander."""
-
+                                                                show zander_neutral at screen_right
+                                                                hide zander_neutral_darken at screen_right
+                                                                show soldier_darken at screen_left
+                                                                hide soldier at screen_left
                                                                 zander "No one’s ever met the First Commander. But a whole mission? This might be interesting."
+                                                                hide zander_neutral at screen_right
+                                                                show zander_neutral_darken at screen_right
+                                                                hide soldier_darken at screen_left
+                                                                show soldier at screen_left
                                                                 jay "Yeah... I’m not even going to try. You guys go ahead. I’ll be here watching."
                                                                 self "Well, looks like this will be a breeze. Let’s give my all then!"
                                                                 
@@ -757,7 +764,7 @@ menu:
                                                                 While I continue fighting on, the First Commander was lurking in the shadows unbeknownst to me."""
                                                                 
                                                                 hide zander_neutral
-                                                                hide soldier_darken
+                                                                hide soldier_darken 
                                                                 show izek_neutral at screen_center
                                                                 izek """I detest attending these kind of events but let’s see what the trainees got.
 
@@ -782,15 +789,27 @@ menu:
                                             jump choice221_no
                                             label choice221_no:
                                                 self "What did he look like?"
-                                                show zander_neutral at screen_center
+                                                #show zander_neutral at screen_right
                                                 zander """Some said he had dark hair, others swore he was blonde.
 
                                                 Honestly, we don’t really know. The story’s been passed down so much, it’s hard to say what’s accurate anymore."""
+                                                hide soldier_darken at screen_left
+                                                show soldier at screen_left
+                                                hide zander_neutral at screen_right
+                                                show zander_neutral_darken at screen_right
                                                 jay "You’re really into this huh.."
                                                 self "I mean, yeah. Somebody died?! That’s not exactly something you just brush off."
                                                 jay "But yeah, it’s not surprising the government did nothing about it. That’s just how things work around here."
+                                                hide zander_neutral_darken at screen_right
+                                                show zander_neutral at screen_right
+                                                hide soldier at screen_left
+                                                show soldier_darken at screen_left
                                                 zander "I bet they kept the higher up silent about it too."
                                                 self "Why do you say that?"
+                                                show zander_neutral_darken at screen_right
+                                                hide zander_neutral at screen_right
+                                                show soldier at screen_left
+                                                hide soldier_darken at screen_left
                                                 jay "I mean, don’t you know? Our government doesn’t care about its people. We’re just cogs in the machine to them."
                                                 self """Oh, right, right... But you know, for being such a hater... why are you even here?
                                                 You’re not exactly, err... soldier material? No offence."""
