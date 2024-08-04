@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 75, in script
-    menu:
-  File "game/screens.rpy", line 99, in execute
-    screen single_stat:
-  File "game/screens.rpy", line 99, in execute
-    screen single_stat:
-  File "game/screens.rpy", line 100, in execute
-    text "Trust bar: [trustpoint]"
-NameError: Name 'trustpoint' is not defined.
+  File "game/script.rpy", line 66, in script
+    narrator "And lastly find Izek."
+TypeError: missing a required argument: 'trustpoint'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 75, in script
-    menu:
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1621, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1110, in menu
-    rv = renpy.store.menu(new_items)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1365, in display_menu
-    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "game/script.rpy", line 66, in script
+    narrator "And lastly find Izek."
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
+    Say.execute(self)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1494, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1394, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1045, in do_display
+    display_say(who,
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 741, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2166, in interact
@@ -42,32 +42,13 @@ Full traceback:
     self.update()
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 697, in update
     self.screen.function(**self.scope)
-  File "game/screens.rpy", line 99, in execute
-    screen single_stat:
-  File "game/screens.rpy", line 99, in execute
-    screen single_stat:
-  File "game/screens.rpy", line 100, in execute
-    text "Trust bar: [trustpoint]"
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\text\text.py", line 1738, in __init__
-    self.set_text(text, scope, substitute) # type: ignore
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\text\text.py", line 1868, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 371, in substitute
-    s = interpolate(s, kwargs) # type: ignore
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 86, in interpolate
-    raise e
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 78, in interpolate
-    value = renpy.python.py_eval(code, {}, scope)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<none>", line 1, in <module>
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 313, in __getitem__
-    raise NameError("Name '{}' is not defined.".format(key))
-NameError: Name 'trustpoint' is not defined.
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\parameter.py", line 429, in apply_arguments
+    return parameters.apply(args or (), kwargs or {}, ignore_errors)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\parameter.py", line 283, in apply
+    raise TypeError(msg) # from None
+TypeError: missing a required argument: 'trustpoint'
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 11:40:20 2024
+Sun Aug  4 12:11:17 2024

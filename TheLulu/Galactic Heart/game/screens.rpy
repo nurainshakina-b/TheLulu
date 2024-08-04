@@ -42,8 +42,8 @@ style prompt_text is gui_text:
 
 style bar:
     ysize gui.bar_size
-    left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
+    left_bar Frame("gui/bar/Trust_Bar_filled.png", gui.bar_borders, tile=gui.bar_tile)
+    right_bar Frame("gui/bar/Trust_Bar.png", gui.bar_borders, tile=gui.bar_tile)
 
 style vbar:
     xsize gui.bar_size
@@ -53,17 +53,17 @@ style vbar:
 style scrollbar:
     ysize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+    thumb Frame("gui/scrollbar/GH_trustbar_fill.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
 
 style vscrollbar:
     xsize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+    thumb Frame("gui/scrollbar/GH_trustbar_fill.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
 style slider:
     ysize gui.slider_size
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    thumb "gui/slider/GH_trustbar_fill.png"
 
 style vslider:
     xsize gui.slider_size
@@ -73,7 +73,7 @@ style vslider:
 
 style frame:
     padding gui.frame_borders.padding
-    background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
+    background Frame("gui/GH_trustbar_bg.png", gui.frame_borders, tile=gui.frame_tile)
 
 
 
@@ -99,16 +99,17 @@ default trustpoint = 50
 default trustpoint_max= 100
 
 #trust state bar
-screen single_stat:
-    frame:
+screen single_stat():
+    
+    bar:
+        value trustpoint
+        range 100
+        xysize(480,40)
         xalign 0.05
         yalign 0.05
-        vbox:
-            xalign 0.05
-            yalign 0.05
-            text "Trust bar: [trustpoint]":
-                xalign 0.05
-                yalign 0.05
+
+
+        
             
 
 screen say(who, what):
