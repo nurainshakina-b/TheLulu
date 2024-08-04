@@ -275,6 +275,7 @@ menu:
                                                                                     hide soldier
                                                                                     show izek_neutral
                                                                                     ian "Send her in. I’ll run through the details of the mission myself."
+                                                                                    hide izek_neutral
 
                                                                                     jump choice22_done
                                                                                         
@@ -291,9 +292,21 @@ menu:
                                                                                     soldierA "No, you’re going back to the cell. We will continue this tomorrow."
                                                                                     hide soldier
                                                                                     narrator "As the questioning ends, they report this situation to their commander. A familiar face."
-
+                                                                                    self "What’s happening? Where are you taking me now... "
+                                                                                    show soldier
+                                                                                    soldierA "The commander wants to see you. "
+                                                                                    hide soldier
+                                                                                    self "The commander?...It’s you. How?"
+                                                                                    show izek_neutral
+                                                                                    ian "The rest of you can leave. It seems like we have some reconnecting to do, right?"
+                                                                                    self "Izek..! You’re okay... And alive?"
+                                                                                    ian "As you can see, I am more than okay. So, tell me, how did you end up here... my lover?"
+                                                                                    self "You’re the commander now, the leader of the Solara military?"
+                                                                                    hide izek_neutral
+                                                                                    show screen grand_screen_3
 
                                                                                     jump choice3_lover
+                                                                                    
                                                                                     
                                                                     jump choice2_done
 
@@ -515,22 +528,38 @@ menu:
                                 show brandon_slightsmile
                                 brandon "Let’s go. You’re going to the cell today."
                                 thoughts "{i}Shoot.{\i}"
+                                hide brandon_slightsmile
 
                                 #TODO jump to act 3 general route
                                 #TODO update menu below
+                                show screen grand_screen_3
 
-                                jump choice22_done
+                                jump choice3_start
                                 label choice22_done:
+                                    
                                 menu: 
+                                    
                                     "The Confrontation":
                                         stop music fadeout 1.0
                                         play music "audio/Beauty Flow.mp3" volume 0.5 loop
-                                        jump choice3_lie
-                                        label choice3_lie:
+                                        show screen grand_screen_3
+                                        jump choice3_start
+                                        label choice3_start:
                                         narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
                                         #TODO update node below
-                                        self "What is going on... No this can’t be!"
-                                        narrator "You are suspicious"
+                                        self "What’s happening? Where are you taking me now? "
+                                        show soldier
+                                        soldierA "Commander Ian, please excuse my leave."
+
+                                        #SFX DOOR CLOSE
+                                        self "Ize.. "
+                                        self "I mean Ian. What are you doing here? This can’t be true... You’re the commander now?"
+                                        hide soldier
+                                        show izek_neutral
+                                        ian " I am.. How did you end up here?"
+
+                                        
+                                        
                                         jump choice3_general
                                         label choice3_general:
 
@@ -622,78 +651,6 @@ menu:
                                                 jump choice31_done
                                                 jump choice3_lover
 
-                                    #TODO change header
-                                    "The Confrontation":
-                                        label choice3_lover:
-                                            show brandon_neutral
-                                            brandon "The commander wants to see you.."
-                                            self "The commander?"
-                                            self "gasps.. Its you.."
-                                            hide brandon_neutral
-                                            show izek_neutral
-                                            izek "The rest can leave.. It seems like we have some reconnecting to do right?"
-                                            narrator "you are surprise and suspicious"
-                                            self "You’re okay.. you are alive?"
-                                            izek "As you can see I am better than okay.. soo how did you end up here ... lover"
-                                            self "You’re the commander now, the leader of the Solara military?"
-                                            menu: 
-                                                "Reveal plans":
-                                                    jump choice311_yes
-                                                    label choice311_yes:
-                                                        self "If you remember me, then you would know I came to find you"
-                                                        show izek_slightsmile
-                                                        izek "I could never forget you. But is that all there is?"
-                                                        self "I came to find you, to get you out of Solara! You don’t belong here, Izek!"
-
-                                                        jump choice3_general
-
-                                                "Ask questions":
-                                                    jump choice311_no
-                                                    label choice311_no:
-                                                        show izek_neutral
-                                                        self "What happened to you? I thought you were dead?"
-                                                        show izek_slightsmile
-                                                        izek "I’m not dead but I have seen better days. It took awhile but I became the leader of Solara’s military."
-                                                        hide izek_neutral
-                                                    jump choice311_done
-                                                    label choice311_done:
-                                                        menu:
-                                                            "Show frustration":
-                                                                jump choice3111_yes
-                                                                label choice3111_yes:
-                                                                    self "Everyone has been worried about you ever since your contact got cut but it seems like I was worried sick for nothing."
-                                                                    self "Glad to know this was all just a waste of time."
-                                                                    izek "Good to know you still care, my lover."
-                                                                    self "I can’t believe you. You would do this... after everything?"
-                                                                    #link to the nodes
-                                                                jump choice31_no
-                                                                label choice3111_done:
-                                              
-                                                            "Show concern":
-                                                                jump choice3111_no
-                                                                label choice3111_no:
-                                                                    self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
-                                                                    show izek_neutral
-                                                                    izek "I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
-                                                                    hide izek_neutral
-                                                                    self "You know why I said that. Is your allegiance to Solara now?"
-                                                                    narrator "Izek explains the current situation"
-                                                                    show izek_neutral
-                                                                    izek "You know, i wouldn’t do that to you right.."
-                                                                    izek "My loyalty will always be Gaiarise and to you. After helping you train all these years, wouldn’t you know me enough to not question my loyalty."
-                                                                    hide izek_neutral
-                                                                    self "I am not sure anymore."
-                                                                    show izek_slightsmile
-                                                                    izek "Well, then you would remember this. I  have feelings for you."
-                                                                    hide izek_slightsmile
-                                                                    self "Do not bring our feelings into this."
-                                                                    narrator"end"
-
-
-
-
-
-
                             "Build bridges":
                                 jump choice22_no
                                 label choice22_no:
@@ -745,7 +702,7 @@ menu:
                                                 jump choice221_done
                                                 label choice221_done:
                                                     menu: 
-                                                        "Sneak away and find the meeting room":
+                                                        "Sneak away":
                                                             jump choice222_yes
                                                             label choice222_yes:
 
@@ -754,7 +711,7 @@ menu:
 
                                                             jump choice222_done
                                                         
-                                                        "Stay with teammates":
+                                                        "Stay with them":
                                                             jump choice222_no
                                                             label choice222_no:
                                                 
@@ -795,7 +752,10 @@ menu:
 
                                                                 {i}I taught her, after all.{\i}
 
-                                                                Send her to my office once it’s over. I’ll go through the mission details with her personally."""                                                                #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
+                                                                Send her to my office once it’s over. I’ll go through the mission details with her personally."""
+                                                                
+                                                                                                                                #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
+                                                                    
                                                                 jump choice222_done
                                                                 label choice222_done:
                                         "Ask how he looked like":
@@ -857,6 +817,82 @@ menu:
 
             
 return
+
+menu:
+    "The Confrontation":
+        jump choice3_lover
+        label choice3_lover:  
+        stop music fadeout 1.0
+        play music "audio/Beauty Flow.mp3" volume 0.5 loop
+        show screen grand_screen_3
+        narrator "Finally, the truth is laid bare in front of me. But, is he the same person? Can he be trusted?"
+        #TODO update node below
+        self "What’s happening? Where are you taking me now? "
+        show soldier
+        soldierA "Commander Ian, please excuse my leave."
+
+        #SFX DOOR CLOSE
+        self "Ize.. "
+        self "I mean Ian. What are you doing here? This can’t be true... You’re the commander now?"
+        hide soldier
+        show izek_neutral
+        ian " I am.. How did you end up here?" 
+        menu:
+            "Reveal plans":
+                jump choice311_yes
+                label choice311_yes:
+                    self "If you remember me, then you would know I came to find you"
+                    show izek_slightsmile
+                    izek "I could never forget you. But is that all there is?"
+                    self "I came to find you, to get you out of Solara! You don’t belong here, Izek!"
+
+                    jump choice3_general
+
+            "Ask questions":
+                jump choice311_no
+                label choice311_no:
+                    show izek_neutral
+                    self "What happened to you? I thought you were dead?"
+                    show izek_slightsmile
+                    izek "I’m not dead but I have seen better days. It took awhile but I became the leader of Solara’s military."
+                    hide izek_neutral
+                jump choice311_done
+                label choice311_done:
+                    menu:
+                        "Show frustration":
+                            jump choice3111_yes
+                            label choice3111_yes:
+                                self "Everyone has been worried about you ever since your contact got cut but it seems like I was worried sick for nothing."
+                                self "Glad to know this was all just a waste of time."
+                                izek "Good to know you still care, my lover."
+                                self "I can’t believe you. You would do this... after everything?"
+                                #link to the nodes
+                            jump choice31_no
+                            label choice3111_done:
+            
+                        "Show concern":
+                            jump choice3111_no
+                            label choice3111_no:
+                                self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
+                                show izek_neutral
+                                izek "I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
+                                hide izek_neutral
+                                self "You know why I said that. Is your allegiance to Solara now?"
+                                narrator "Izek explains the current situation"
+                                show izek_neutral
+                                izek "You know, i wouldn’t do that to you right.."
+                                izek "My loyalty will always be Gaiarise and to you. After helping you train all these years, wouldn’t you know me enough to not question my loyalty."
+                                hide izek_neutral
+                                self "I am not sure anymore."
+                                show izek_slightsmile
+                                izek "Well, then you would remember this. I  have feelings for you."
+                                hide izek_slightsmile
+                                self "Do not bring our feelings into this."
+                                narrator"end"
+    
+            
+jump choice3_lover_done
+label choice3_lover_done:
 
     
 
