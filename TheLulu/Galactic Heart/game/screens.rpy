@@ -290,7 +290,7 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos 0.1
+        xpos 0.05
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -519,7 +519,7 @@ style game_menu_vscrollbar:
     unscrollable gui.unscrollable
 
 style game_menu_side:
-    spacing 15
+    spacing 5
 
 style game_menu_label:
     xpos 75
