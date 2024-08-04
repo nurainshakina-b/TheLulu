@@ -41,7 +41,7 @@ label start:
     # add a file (named either "bg room.png"or "bg room.jpg") to the
     # images directory to show it.
     
-    play music "audio/Bleeping Demo.mp3" volume 0.5
+    play music "audio/Bleeping Demo.mp3" volume 0.5 loop
     show planetboth
     with fade
     hide planetA
@@ -145,6 +145,8 @@ menu:
                 "Find Meeting Room":
                     jump choice12_yes
                     label choice12_yes:
+                        stop music fadeout 1.0
+                        play music "audio/Half Mystery.mp3" volume 0.5 loop
                         $ menu_flag = True
                         show bg_meeting_rm_blur
                         with fade
@@ -166,7 +168,7 @@ menu:
                                                 label choice14_yes:
                                                 $ menu_flag = True
                                                 self "These documents. I need to send them back to command base."
-                                                #SFX
+                                                play sound "audio/Door Open.mp3" volume 0.8
                                                 narrator "Door Opens."
                                                 self "Oh damn."
                                                 show brandon_neutral
@@ -382,6 +384,7 @@ menu:
                                                 $ menu_flag = False
                                                 self "Wait, these seem to be the only copies they have. I could just erase the coordinates."
                                                 narrator "Door opens."
+                                                play sound "audio/Door Open.mp3" volume 0.8
                                                 show brandon_neutral
                                                 with hpunch
                                                 brandon "What are you doing here? Aren’t you a trainee? You’re not authorised to be in here."
@@ -429,6 +432,9 @@ menu:
                         with fade
 
                         #CHOICE2PATH2
+                        stop music fadeout 1.0
+                        play music "audio/Galactic Rap.mp3" volume 0.5 loop
+
                         narrator """The Training. Start of Act 2 (Path 2)
                         
                         Should I build or burn bridges? I need to choose wisely and most importantly, never lose sight of my mission.
@@ -455,6 +461,8 @@ menu:
                                 If I can find a way to undermine the others, especially the weaker ones like Jay, it could speed up my progress.
                                 
                                 I’ll need to be careful, though—subtlety is key."""
+                                play sound "audio/Fighting.mp3" volume 0.8 
+                                with Pause (0.8) 
                                 self "Yes! I made him slip."
                                 show soldier
                                 faceless "Did you see that? What is happening?"
@@ -508,6 +516,8 @@ menu:
                                 label choice22_done:
                                 menu: 
                                     "The Confrontation":
+                                        stop music fadeout 1.0
+                                        play music "audio/Beauty Flow.mp3" volume 0.5 loop
                                         jump choice3_lie
                                         label choice3_lie:
                                         narrator "The confrontation: Love or War?"
@@ -684,7 +694,7 @@ menu:
                                                 I almost got into trouble for poking around there."""
                                                 self  "Huh, interesting..."
                                                 self "Anyway, that’s enough. Let’s get through this fast so that we could get a break."
-                                                 #TODO fade in out to black
+                                                #TODO fade in out to black
 
                                                 soldierA "Trainee Alia, Trainee Zander, Trainee Jay, training is completed. Good job, trainees."
                                                 jump choice221_done
@@ -700,7 +710,7 @@ menu:
                                                             jump choice222_no
                                                             label choice222_no:
                                                 
-                                                                #BELL SFX
+                                                                play sound "audio/Annoucement.mp3" volume 1
                                                                 announcer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring."
                                                                 soldierC """Welcome, trainees, to the Annual Solara Trainee Sparring.
 
