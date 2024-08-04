@@ -10,11 +10,11 @@ define narrator = Character("")
 define connor = Character("Commander Connor")
 define brandon = Character("Brandon")
 define izek = Character("Izek")
-define ian = Character("Commander Ian (AKA Izek)")
+define ian = Character("Commander Ian")
 define jay = Character("Jay")
 define zander = Character("Zander")
 define self = Character("Me")
-define thoughts = Character("Thinks to self")
+define thoughts = Character("Me")
 define annoucer = Character("Annoucement")
 define soldierA = Character("Soldier A")
 define soldierB = Character("Soldier B")
@@ -26,7 +26,7 @@ image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
 
-default player_trust= 50
+default player_trust = 50
 default player_trust_max = 100
 
 
@@ -37,7 +37,7 @@ default player_trust_max = 100
 label start:    
 
     # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # add a file (named either "bg room.png"or "bg room.jpg") to the
     # images directory to show it.
     
 
@@ -49,7 +49,7 @@ label start:
 
 
     # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
+    # replace it by adding a file named "eileen happy.png"to the images
     # directory.
 
     # show eileen happy
@@ -68,11 +68,17 @@ label start:
 
     narrator "Several light years have passed, life at Gaiarise has not been the same without you."
 
-    narrator "After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Gaiarise had set forth a mission."
-    narrator "To infiltrate and find our information on them, sending their top agent - Agent Izek."
-    narrator " But something went wrong, all communication was lost and he never returned back. Many looked up to him and hoped he would return."
-    narrator "However, now being one of the best, you are needed for a mission. Go to Solara, infiltrate their military. Find information and signal back to the command base to start the siege."
-    narrator "And lastly find Izek."
+    narrator """After knowing Solara, a known enemy planet has been stealing resources from neighbouring planets, the people of Gaiarise had set forth a mission-
+    
+    To infiltrate and find out information on them, sending their top agent - Agent Izek.
+
+    But something went wrong, all communication was lost and he never returned back. Many looked up to him and hoped he would return.
+
+    However, now being one of the best, you are needed for a mission.
+
+    Go to Solara, and infiltrate their military. Find information and signal back to the command base to start the siege.
+
+    And lastly, find Izek."""
 
 #CONVO1
     show bg_command_base_blur
@@ -81,23 +87,31 @@ label start:
     show connor_neutral
     with vpunch
 
-    connor " Reports from our allies indicate a rise in resource theft. All evidence points to Solara as the perpetrator. Intelligence suggests Gaiarise is their next target. You’re one of our top agents, and this mission falls to you. "
+    connor "Reports from our allies indicate a rise in resource theft. All evidence points to Solara as the perpetrator."
+    connor "Intelligence suggests Gaiarise is their next target. You’re one of our top agents, and this mission falls on you."
     hide connor_neutral
 
-    self "What’s the mission?" 
+    self "What’s the mission?"
 
     show connor_neutral
-    connor "You’re going undercover in Solara. We’re embedding you in their military. Your job is to infiltrate and dig up whatever you can on their plans."
-    connor "And don’t forget—find Izek. Undercover name: Ian."
+    connor """You’re going undercover in Solara. We’re embedding you in their military.
+
+    Your job is to infiltrate and dig up whatever you can on their plans.
+    
+    And don’t forget—find Izek. His undercover name is Ian."""
     hide connor_neutral
 
     self "Izek? After all this time? We haven’t heard from him in ages."
     show connor_neutral
-    connor "I know it’s been a while. But we need answers, and we need him back. Whether he’s alive or… not, just bring him home."
-    connor "This ring is fingerprint-activated. It’s your signal for the siege of Solara. Use it if you’re in trouble, or when you’ve decided it’s time to initiate the siege."
+    connor "I know it’s been a while. But we need answers, and we need him back."
+    connor "Whether he’s alive or… not, just bring him home."
+    connor "This ring is fingerprint-activated. It’s your signal for the siege of Solara."
+    connor "Use it if you’re in trouble, or when you’ve decided it’s time to initiate the siege."
     hide connor_neutral
 
-    self " I successfully integrate into the military, and begin my journey as a trainee. My mission is clear: gather intelligence and locate Izek. My quest starts now."
+    """I successfully integrate into the military, and begin my journey as a trainee.
+
+    My mission is clear: gather intelligence and locate Izek. My quest starts now."""
     show bunk
     with fade
     with hpunch
@@ -109,16 +123,16 @@ label start:
 
 #CHOICE1
 menu:
-    "Ignore Him":
+    "Ignore him":
         jump choice1_yes
         label choice1_yes:
             $ menu_flag = False
-            self " So... are you my roommate?"
+            self "So... are you my roommate?"
             show zander_neutral
-            zander " Yea.."
+            zander "Yeah."
             hide zander_neutral
-            self " Okayyy"
-            thoughts "Hmmm.. Maybe I should I go look around."
+            self "Okay..."
+            thoughts "{i}Hmmm.. Maybe I should I go look around.{\i}"
 
             jump choice1_done
             label choice1_done:
@@ -127,18 +141,18 @@ menu:
             with fade
             #CHOICE12
             menu: 
-                "Finds Meeting Room":
+                "Find Meeting Room":
                     jump choice12_yes
                     label choice12_yes:
                         $ menu_flag = True
                         show bg_meeting_rm_blur
                         with fade
-                        self "What’s this? Oh, damn... "
-                        self "These are coordinates and secret pathways to Astralis and Lunara—Gaiarise’s allies. " 
-                        self "They’re planning to hit them next?? What should I do? Hmm..."
+                        self "What’s this? Oh, damn..."
+                        self "These are coordinates and secret pathways to Astralis and Lunara—Gaiarise’s allies."
+                        self "They’re planning to hit them next? What should I do? Hmm..."
 
                         menu: 
-                            "Sabotage Plans":
+                            "Sabotage plans":
                                 jump choice13_yes
                                 label choice13_yes:
                                     $ menu_flag = True
@@ -146,13 +160,14 @@ menu:
                                 jump choice13_done
                                 label choice13_done:
                                         menu:
-                                            "Steal Documents":
+                                            "Steal documents":
                                                 jump choice14_yes
                                                 label choice14_yes:
                                                 $ menu_flag = True
                                                 self "These documents. I need to send them back to command base."
-                                                narrator "Door Opens. "
-                                                self "Oh damn. "
+                                                #SFX
+                                                narrator "Door Opens."
+                                                self "Oh damn."
                                                 show brandon_neutral
                                                 with hpunch
                                                 with vpunch
@@ -162,11 +177,11 @@ menu:
                                                 show brandon_neutral
                                                 brandon "These are top secret information. How did you get in here?"
                                                 hide brandon_neutral
-                                                self " I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
+                                                self "I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
                                                 show brandon_neutral
                                                 brandon "So you didn’t want to cause trouble.  What’s that you’re holding?"
                                                 hide brandon_neutral
-                                                thoughts "How do I get out of this? "                                              
+                                                thoughts "{i}How do I get out of this?{\i}"                                             
                                                 menu:
                                                     #CHOICE15
                                                     "Seduce him":
@@ -177,15 +192,15 @@ menu:
                                                         show brandon_neutral
                                                         brandon "You got lost? And somehow ended up with those classified papers in your hands?"
                                                         hide brandon_neutral
-                                                        self " I... I didn’t mean any harm. I’ll do anything to make it right. Please, just let me off the hook. I mean... you’re a good-looking guy. Maybe we could work something out?"
+                                                        self "I... I didn’t mean any harm. I’ll do anything to make it right. Please, just let me off the hook. I mean... you’re a good-looking guy. Maybe we could work something out?"
                                                         show brandon_neutral
                                                         brandon "Flattery won’t get you far, but I have to admit, you’ve got guts. Still, you’re in deep water here. What exactly are you offering?"
                                                         hide brandon_neutral
-                                                        self "-leans in closer, her voice softening-"
+                                                        narrator "I lean in closer to him, my voice softening-"
                                                         self "Whatever you want. I just don’t want any trouble... and I’d really hate for this to ruin our first impression. Maybe we could come to a... mutual understanding?"
                                                         show brandon_smirk
                                                         with easeinright
-                                                        brandon "I have a wife and two kids. I know I look like this but I am loyal to them. Come on. I’m sending you down to the cells. "
+                                                        brandon "I have a wife and two kids. I know I look like this but I am loyal to them. Come on. I’m sending you down to the cells."
                                                         hide brandon_smirk
                                                         self "Dammit..."
                                                         show screen grand_screen_2_jail
@@ -195,8 +210,11 @@ menu:
                                                         jump choice15_done
                                                         label choice15_done:
 
-                                                            narrator "Can you get out of it?  "
-                                                            narrator "Getting caught was never the plan but you can always try to get out of it. As the questioning starts, you need to decide what is priority. To escape? Find Izek?"
+                                                            narrator """Can I get out of it?
+
+                                                            Getting caught was never the plan but I can always try to get out of it. The questioning is starting.
+
+                                                            I need to decide what is priority. To escape? Find Izek?"""
                                                             menu:
                                                                 #CHOICE2
                                                                 "Ask them questions":
@@ -282,7 +300,7 @@ menu:
                                                                     jump choice2_no
                                                                     label choice2_no:
                                                                         show soldier
-                                                                        soldierA " Do you realise what those documents are?"
+                                                                        soldierA "Do you realise what those documents are?"
                                                                         hide soldier
                                                                         self "Oh, these? I thought they were just routine reports. Am I not supposed to have them?"
                                                                         show soldier
@@ -312,7 +330,7 @@ menu:
                                                                                 jump choice2p2
                                                                                 label choice212_done:
 
-                                                                            "Deflect Questions":
+                                                                            "Deflect questions":
                                                                                 jump choice212_no
                                                                                 label choice212_no:
                                                                                     self "I’m new here, remember? I was just doing some filing and grabbed the wrong stack. Honest mistake. I didn’t even get a chance to look at what’s inside."
@@ -324,7 +342,7 @@ menu:
                                                                                     soldierA "You’re on thin ice. Make sure this doesn’t happen again."
                                                                                     hide soldier
                                                                                     self "Absolutely. I’ll be more careful. Thank you for understanding."
-                                                                                    thoughts "That was close but they’re going to keep a closer eye on me now."
+                                                                                    thoughts "{i}That was close but they’re going to keep a closer eye on me now.{\i}"
                                                                                     show screen grand_screen_2
                                                                                 jump choice2p2
 
@@ -334,26 +352,30 @@ menu:
                                                     "Bribe him":
                                                         jump choice15_no
                                                         label choice15_no:
-                                                        self "Can’t you let me off? I was just curious about what this was all about. "
+                                                        self "Can’t you let me off? I was just curious about what this was all about."
                                                         show brandon_neutral
                                                         brandon "Why did you need to know? "
                                                         hide brandon_neutral
-                                                        self " I’m new here, and honestly, a bit of an overachiever. I just wanted to be prepared. Please, just this once, let it slide. I’ll make it worth your while—Celestium, as much as you want. Name your price."
+                                                        self "I’m new here, and honestly, a bit of an overachiever. I just wanted to be prepared. Please, just this once, let it slide. I’ll make it worth your while—Celestium, as much as you want. Name your price."
                                                         show brandon_neutral
-                                                        brandon "Alright, I’ll let it go. This’ll help my family… but it’s going to cost you. "
+                                                        brandon "Alright, I’ll let it go. This’ll help my family… but it’s going to cost you."
                                                         hide brandon_neutral
                                                         self "Okay so 50 Celestium anytime? "
                                                         show brandon_neutral
                                                         with vpunch
                                                         brandon "You got yourself a deal."
-                                                        brandon " You’re playing a dangerous game, Alia. But maybe I can be persuaded... this time. Just remember, I’m not as easy to sway as you might think. If you get caught again, you’re on your own."
+                                                        brandon "You’re playing a dangerous game, Alia. But maybe I can be persuaded... this time. Just remember, I’m not as easy to sway as you might think. If you get caught again, you’re on your own."
                                                         hide brandon_neutral
-                                                        thoughts "That was a close call. I got away this time. But why the heck did I offer 50 Celestium, anytime? This is going to cost me big time. Dammit. Now where’s the training room?"
+                                                        thoughts """{i}That was a close call.
+
+                                                        I got away this time but why the heck did I offer 50 Celestium, anytime? This is going to cost me big time. Dammit.
+
+                                                        Now where’s the training room?{\i}"""
                                                         show screen grand_screen_2
                                                         jump choice2p2
 
                                             #CHOICE14
-                                            "Erase Coordinates":
+                                            "Erase coordinates":
                                                 jump choice14_no
                                                 label choice14_no:
                                                 $ menu_flag = False
@@ -367,7 +389,7 @@ menu:
                                                 show brandon_neutral
                                                 brandon "Mind you trainee, only a higher personnel like myself and your sergeant majors could enter in here and not the likes of you. So.. how did you get in here?"
                                                 hide brandon_neutral
-                                                self " I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
+                                                self "I was looking around and I got lost. I was trying to find the training room. I did not mean to cause trouble."
                                                 show brandon_neutral
                                                 brandon "Don’t come in here unless you were told to again. The Combat Simulation Chamber is right around the corner. Now, go your training is about to start."
                                                 hide brandon_neutral
@@ -378,12 +400,12 @@ menu:
                             
 
                             #CHOICE13
-                            "Ignore Plans":
+                            "Ignore plans":
                                 jump choice13_no
                                 label choice13_no:
                                     $ menu_flag = False
                                     self "It’s too risky to do anything now. I’ll have to report back what I saw. Maybe I could come back here again. I need to go to the training room now."
-                                    narrator "You weren't caught"
+                                    #narrator "You weren't caught"
                                     jump choice2p2
                                     show screen grand_screen_2
 
@@ -391,7 +413,7 @@ menu:
                         label choice2_done:
                             
                 #CHOICE12
-                "Finds Training Room":
+                "Find Training Room":
                     show bg_training_rm_blur
                     with fade
                     jump choice12_no
@@ -406,18 +428,33 @@ menu:
                         with fade
 
                         #CHOICE2PATH2
-                        narrator "The Training. Start of Act 2 (Path 2)"
-                        narrator "Are you building or burning bridges? Remember to choose wisely and never lose sight of your mission."
-                        narrator"As your training begins, you'll face decisions about whether to manipulate others or build alliances. You'll meet Jay, the weakest link in the group, and might rely on your roommate, Zander, to progress. Alternatively, you can try to succeed on your own. But is that the best choice?"
+                        narrator """The Training. Start of Act 2 (Path 2)
+                        
+                        Should I build or burn bridges? I need to choose wisely and most importantly, never lose sight of my mission.
+                        
+                        As training begins, I’ll have to face decisions about whether to manipulate others or build alliances.
+
+                        I meet Jay, the weakest link in the group, and I might need to rely on my roommate, Zander, to progress.
+
+                        Alternatively, I can try to succeed on my own.
+    
+                        But is that the best choice?"""
                         self "So, this is the training room.  Dammit, I got to do this all over again. I hate this."
                         menu:
-                            "Burning Bridges":
+                            "Burn bridges":
                                 jump choice22_yes
                                 label choice22_yes:
                                 
-                                self "Let’s get through this quickly. So, we have to climb the ranks? It might be faster if I work alone. Hmm... If only there was a way to slip past some of these obstacles. "
-                                self " If I can find a way to undermine the others, especially the weaker ones like Jay, it could speed up my progress. I’ll need to be careful, though—subtlety is key."
-                                self "Yes! I made him slip. "
+                                self """Let’s get through this quickly.
+
+                                So, we have to climb the ranks? It might be faster if I work alone.
+
+                                Hmm... If only there was a way to slip past some of these obstacles.
+
+                                If I can find a way to undermine the others, especially the weaker ones like Jay, it could speed up my progress.
+                                
+                                I’ll need to be careful, though—subtlety is key."""
+                                self "Yes! I made him slip."
                                 show soldier
                                 faceless "Did you see that? What is happening?"
                                 hide soldier
@@ -432,15 +469,40 @@ menu:
                                 show bg_meeting_rm_blur
                                 with fade
 
-                                #old structure
-                                narrator "Proceeds to explore other facilities- left training grounds"
+                                self "This looks interesting."
+                                "{i}Damn.. I knew it was too good to be true. {\i}"
+
+                                #TODO if condition
+                                #if player stole documents in act 1,
+                                brandon "Ha... It’s you again. What are you doing here? You’re not authorised to be in here."
+                                self """Oh, I did not know. 
                                 
-                                narrator "Guard caught you entering a restricted area with classified information."
-                                show bg_jail_blur
-                                with fade
-                                narrator "You get send to the cell."
-                                narrator "Authorities are alerted, reports were to the top guy."
-                                narrator "Izek got  the report about her and ask her to be brought to the office."
+                                I was looking around and I got lost. I did not mean to cause trouble."""
+                                brandon """That excuse is not gonna work on me the second time.
+
+                                And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
+    
+                                Let’s go. You’re going to the cell today."""
+                                narrator "{i}Shoot.{\i}"
+                                #TODO jump to act 3 general route
+
+                                #TODO if condition
+                                #if player stole documents in act 1,
+                                brandon """What are you doing here? Aren’t you a trainee?
+
+                                You’re not authorised to be in here."""
+                                self "Oh, I did not know."
+                                brandon "These are top secret information. How did you get in here?"
+                                self "I was looking around and I got lost. I did not mean to cause trouble."
+                                brandon """That excuse is not gonna work on me the second time.
+
+                                And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?
+    
+                                Let’s go. You’re going to the cell today."""
+                                narrator "{i}Shoot.{\i}"
+
+                                #TODO jump to act 3 general route
+
                                 jump choice22_done
                                 label choice22_done:
                                 menu: 
@@ -458,7 +520,7 @@ menu:
                                         narrator "Confront him"
                                         self "I can’t believe you would do this.. You really betrayed us?"
                                         show izek_neutral
-                                        izek " I did no such thing. I still stand with Gaiarise."
+                                        izek "I did no such thing. I still stand with Gaiarise."
                                         hide izek_neutral
                                         narrator "Izek reveals his plans and what he has been doing"
                                         show izek_neutral
@@ -466,7 +528,7 @@ menu:
                                         hide izek_neutral
                                         self "... and what? You’re not corrupted?"
                                         show izek_neutral
-                                        izek " Do you really think i would do that to my home planet? ... To you? I have a plan and now that I know you’re here. You can help. Believe me Pleasee.."
+                                        izek "Do you really think i would do that to my home planet? ... To you? I have a plan and now that I know you’re here. You can help. Believe me Pleasee.."
                                         
                                         #calculated trust point determines, need to research
                                         menu:
@@ -476,9 +538,9 @@ menu:
                                                 label choice31_yes:
                                                     show planetboth
                                                     narrator "He tells you what to do"
-                                                    narrator "Deciding to work with him, you send covert messages back to the command base. Sharing details of Izek and the current state of the planet. With Izek’s lead, he carried out a revolution with the Solaraian military and took down the corrupted regime. "
-                                                    narrator "Solara is rebuilding and mending its relationship with the planets they have wronged before. And with the newfound support of Gaiarise, an alliance was formed and this is the start of a new beginning for Solara. "
-                                                    narrator "After all is well, you and Izek explore old feelings and your happily ever after is just beginning. "
+                                                    narrator "Deciding to work with him, you send covert messages back to the command base. Sharing details of Izek and the current state of the planet. With Izek’s lead, he carried out a revolution with the Solaraian military and took down the corrupted regime."
+                                                    narrator "Solara is rebuilding and mending its relationship with the planets they have wronged before. And with the newfound support of Gaiarise, an alliance was formed and this is the start of a new beginning for Solara."
+                                                    narrator "After all is well, you and Izek explore old feelings and your happily ever after is just beginning."
                                                     narrator "Spread love, not war."
                                                     jump choice31_done
                                                     label choice31_done:
@@ -493,19 +555,19 @@ menu:
                                                     hide izek_neutral
                                                     self "You really think i’ll listen to you.. I can’t risk it. I will not give up Gaiarise...not even for you. I’m sorry. I am going to signal for siege"
                                                     show izek_neutral
-                                                    izek "...wait.. "
+                                                    izek "...wait.."
                                                     izek"/sighs/"
                                                     izek "Do it... Its okay... Its going to be harder to convince them but I will never blame you..."
                                                     hide izek_neutral
                                                     narrator "Signal for siege"
-                                                    narrator "While all is well for Gaiarise, its been revealed how corrupted the government of Solara is. The siege might have been saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along. "
-                                                    narrator "As for Izek, his loyalty is question. However, he never blamed you for his current situation. He knew its going to take a lot of convincing and evidence to prove his allegiance to Gaiarise. "
-                                                    narrator "Due to high tensions, they were never able to share their feelings for one another. With the stakes high, the protagonist was not willing to risk her planet, even for the man she loves. "
+                                                    narrator "While all is well for Gaiarise, its been revealed how corrupted the government of Solara is. The siege might have been saving grace for the people but it was going to take a longer time for Gaiarise and the people Solara to get along."
+                                                    narrator "As for Izek, his loyalty is question. However, he never blamed you for his current situation. He knew its going to take a lot of convincing and evidence to prove his allegiance to Gaiarise."
+                                                    narrator "Due to high tensions, they were never able to share their feelings for one another. With the stakes high, the protagonist was not willing to risk her planet, even for the man she loves."
                                                     narrator "Was it the right choice?"
                                                     jump choice31_done
                                         
                                         jump choice3_lover
-                                        
+                                    #TODO change header
                                     "The Confrontation":
                                         label choice3_lover:
                                             show brandon_neutral
@@ -556,7 +618,7 @@ menu:
                                                                 label choice3111_no:
                                                                     self "Are you okay? I  haven’t heard from you for so long...Are you hurt?"
                                                                     show izek_neutral
-                                                                    izek " I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
+                                                                    izek "I’ve been better...Glad to know you still care about me.. Oh wait.. we’re lovers right"
                                                                     hide izek_neutral
                                                                     self "You know why I said that. Is your allegiance to Solara now?"
                                                                     narrator "Izek explains the current situation"
@@ -576,7 +638,7 @@ menu:
 
 
 
-                            "Building Bridges":
+                            "Build bridges":
                                 jump choice22_no
                                 label choice22_no:
                                     narrator "Push other to work together"
@@ -616,26 +678,26 @@ menu:
                                                             jump choice222_no
                                                             label choice222_no:
                                                                 narrator "Announcement bell rang"
-                                                                annoucer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring. "
+                                                                annoucer "Attention trainees! Please report to the training grounds for the Annual Solara Trainee Sparring."
                                                                 narrator "Heads to the training grounds, where they gave a boring speech to start off."
                                                                 show bg_training_rm_blur
                                                                 with fade
                                                                 annoucer "Welcome trainees to the Annual Solara Trainee Sparring. Everyone is required to attend. Fight till one is left standing. The winner will receive an opportunity to lead our upcoming mission alongside our Commander"
                                                                 narrator "Proceeds to fight"
-                                                                self " Well looks like this will be a breeze. Let’s give my all then! "
+                                                                self "Well looks like this will be a breeze. Let’s give my all then! "
                                                                 narrator "Became the last pair standing"
                                                                 self "So close to the finishing line. I can’t give up yet."
                                                                 narrator "Managed to defeat the other trainee and became the winner of Solara’s Annual Trainee Sparring"
                                                                 
                                                                 narrator "Izek stood by the sidelines at the training ground while listening to the boring opening ceremony"
                                                                 show izek_neutral
-                                                                izek "I detest attending these kind of events but hm let’s see what the trainees got... "
+                                                                izek "I detest attending these kind of events but hm let’s see what the trainees got..."
                                                                 narrator "He asks the nearby guard for the name of the newbie that won"
                                                                 izek "Send me that trainee’s document to my office now."
                                                                 #will create a menu to link back to "Calls her into the office under the disguise sharing information of the mission."
                                                                 jump choice222_done
                                                                 label choice222_done:
-                                        "Ask how he looked like?":
+                                        "Ask how he looked like":
                                             jump choice221_no
                                             label choice221_no:
                                                 self "What did he look like?"
@@ -645,7 +707,7 @@ menu:
 
                                                 hide zander_neutral
                                                 narrator "Through the  conversation you find out how the people of Solara are against the rulers and are suffering."
-                                                zander "But yeah its not surprising that the government do nothing about it.." 
+                                                zander "But yeah its not surprising that the government do nothing about it.."
                                                 zander "I bet they kept the higher up silent about it too"
                                                 self "Why do you say that?"
                                                 zander "I mean don’t you know our government doesn’t care about our people..."
@@ -656,7 +718,7 @@ menu:
                         jump choice2_done
 
 
-    "Make Friends":
+    "Make friends":
         jump choice1_no
         label choice1_no:
             $ menu_flag = True
@@ -668,7 +730,9 @@ menu:
             show bg_corridor_blur
             with fade
             show zander_neutral
-            zander "So, here’s the Neural Lounge— it’s our version of a break room. You can decompress and clear your mind from a tough mission here. Over there, we have the Holo-Conferencing Room. That’s where we sync commands across the galaxy in real-time."
+            zander """So, here’s the Neural Lounge— it’s our version of a break room. You can decompress and clear your mind from a tough mission here.
+
+            Over there, we have the Holo-Conferencing Room. That’s where we sync commands across the galaxy in real-time."""
             hide zander_neutral
             self "Impressive... What’s next?"
             show zander_neutral
@@ -676,7 +740,11 @@ menu:
             hide zander_neutral
             self "Cool... So, is training tough? "
             show zander_neutral
-            zander "Let’s just say, the sim chamber adapts to your skill level. You’ll be facing everything from basic drills to full-scale virtual invasions. But don’t worry—you’re going to find out soon enough"
+            zander """Let’s just say, the Simulation Chamber adapts to your skill level.
+
+            You’ll be facing everything from basic drills to full-scale virtual invasions.
+
+            But don’t worry—you’re going to find out soon enough"""
             hide zander_neutral
             show screen grand_screen_2
 
