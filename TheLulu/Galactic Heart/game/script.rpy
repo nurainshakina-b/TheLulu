@@ -27,7 +27,7 @@ image bunk ="bg_bunk_rm_blur.png"
 image jailblur = "bg_jail_blur.png"
 image planetboth = "bg_planetBoth_blur.png"
 
-image zander_netural_darken:
+image zander_neutral_darken:
     'zander_neutral.png'
     matrixcolor BrightnessMatrix(-0.8)
 
@@ -37,6 +37,8 @@ image soldier_darken:
 
 default player_trust = 50
 default player_trust_max = 100
+
+default stealDoc = False
 
 init:
     $ screen_center = Position(xpos=0.5, ypos=1.15)
@@ -136,6 +138,7 @@ menu:
         jump choice1_yes
         label choice1_yes:
             $ menu_flag = False
+            $ stealDoc = True
             self "So... are you my roommate?"
             show zander_neutral at screen_center
             zander "Yeah."
@@ -237,7 +240,7 @@ menu:
                                                                         show soldier at screen_center
                                                                         soldierA "You’re in no position to be making deals."
                                                                         hide soldier
-                                                                        self "Do you know Ian(Agent Izek’s undercover name)?"
+                                                                        self "Do you know Ian?"
                                                                         show soldier at screen_center
                                                                         soldierB "Ian? What does he have to do with this?"
                                                                         hide soldier
@@ -247,7 +250,7 @@ menu:
                                                                         hide soldier
                                                                         self "So he’s still around then? I heard he was good at what he did."
                                                                         show soldier at screen_center
-                                                                        soldierB "(scoffs) Good? That’s an understatement. If you’re asking about Ian, you’re treading dangerous ground. Why the sudden interest?"
+                                                                        soldierB "Ha! Good? That’s an understatement. If you’re asking about Ian, you’re treading dangerous ground. Why the sudden interest?"
                                                                         soldierB "What and how do you know of him?"
                                                                         hide soldier                
                                                                         menu:
@@ -501,42 +504,42 @@ menu:
                                 self "This looks interesting."
                                 "{i}Damn.. I knew it was too good to be true. {\i}"
 
-                                #TODO if condition
-                                #if player stole documents in act 1,
-                                show brandon_neutral at screen_center
-                                brandon "Ha... It’s you again. What are you doing here? You’re not authorised to be in here."
-                                self """Oh, I did not know. 
-                                
-                                I was looking around and I got lost. I did not mean to cause trouble."""
-                                brandon "That excuse is not gonna work on me the second time."
-                                hide brandon_neutral
-                                show brandon_smirk at screen_center
-                                brandon """And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
-    
-                                Let’s go. You’re going to the cell today."""
-                                narrator "{i}Shoot.{\i}"
-                                hide brandon_smirk
-                                #TODO jump to act 3 general route
+                                if stealDoc == True:
+                                    jump brandonAgain
+                                    label brandonAgain:
+                                        show brandon_neutral at screen_center
+                                        brandon "Ha... It’s you again. What are you doing here? You’re not authorised to be in here."
+                                        self """Oh, I did not know.
+                                        I was looking around and I got lost. I did not mean to cause trouble."""
+                                        brandon "That excuse is not gonna work on me the second time."
+                                        hide brandon_neutral
+                                        show brandon_smirk at screen_center
+                                        brandon """And you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area, {i}again{\i}?
 
-                                #TODO if condition
-                                #if player stole documents in act 1,
+                                        Let’s go. You’re going to the cell today."""
+                                        narrator "{i}Shoot.{\i}"
+                                        hide brandon_smirk
 
-                                show brandon_neutral
+                                        jump choice3_start
+                                else:
+                                    jump brandonFirst
+                                    label brandonFirst:
+                                        show brandon_neutral
 
-                                brandon """What are you doing here? Aren’t you a trainee?
+                                        brandon """What are you doing here? Aren’t you a trainee?
 
-                                You’re not authorised to be in here."""
-                                self "Oh, I did not know."
-                                brandon "These are top secret information. How did you get in here?"
-                                self "I was looking around and I got lost. I did not mean to cause trouble."
-                                brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
-                                hide brandon_neutral
-                                show brandon_slightsmile at screen_center
-                                brandon "Let’s go. You’re going to the cell today."
-                                thoughts "{i}Shoot.{\i}"
-                                hide brandon_slightsmile
+                                        You’re not authorised to be in here."""
+                                        self "Oh, I did not know."
+                                        brandon "These are top secret information. How did you get in here?"
+                                        self "I was looking around and I got lost. I did not mean to cause trouble."
+                                        brandon "So you didn’t want to cause trouble but you sneak out of training? And then decide to enter a restricted area?"
+                                        hide brandon_neutral
+                                        show brandon_slightsmile
+                                        brandon "Let’s go. You’re going to the cell today."
+                                        thoughts "{i}Shoot.{\i}"
+                                        hide brandon_slightsmile
+                                        jump choice3_start
 
-                                #TODO jump to act 3 general route
                                 #TODO update menu below
                                 show screen grand_screen_3
 
@@ -664,10 +667,10 @@ menu:
 
                                     Maybe it’s smarter to work with the others... My roommate, Zander, and Jay? {\i}"""
                                     show soldier at screen_left
-                                    show zander_netural at screen_right 
+                                    show zander_neutral at screen_right 
                                     self "Do you guys want to work together?"
                                     jay "That would be a great help. I’ve been struggling to keep up on my own."
-                                    hide zander_netural at screen_right
+                                    hide zander_neutral at screen_right
                                     show soldier_darken at screen_left
                                     show zander_slightsmile at screen_right 
                                     zander "Sure, why not? Could be interesting to see how we handle this as a team."
@@ -699,12 +702,12 @@ menu:
                                                 hide zander_slightsmile at screen_right 
                                                 show zander_neutral at screen_right
                                                 zander "It was 3-4 years ago..? It was right before I got in, really."
-                                                show zander_netural_darken at screen_right
+                                                show zander_neutral_darken at screen_right
                                                 hide soldier_darken at screen_left
                                                 show soldier at screen_left
                                                 jay "I mean there were rumours that there people trying to cover up the whole thing"
                                                 show soldier_darken at screen_left
-                                                hide zander_netural_darken at screen_right
+                                                hide zander_neutral_darken at screen_right
                                                 show zander_neutral at screen_right
                                                 zander """Yeah, I remember something about that. Saw some big meeting happening among the leaders at the holo-conferencing room.
 
@@ -753,6 +756,8 @@ menu:
 
                                                                 While I continue fighting on, the First Commander was lurking in the shadows unbeknownst to me."""
                                                                 
+                                                                hide zander_neutral
+                                                                hide soldier_darken
                                                                 show izek_neutral at screen_center
                                                                 izek """I detest attending these kind of events but let’s see what the trainees got.
 
