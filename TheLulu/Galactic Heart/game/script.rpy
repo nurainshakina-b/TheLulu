@@ -285,7 +285,7 @@ menu:
                                                                         hide soldier
                                                                         self "Oh, these? I thought they were just routine reports. Am I not supposed to have them?"
                                                                         show soldier
-                                                                        soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+                                                                        soldierA"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
                                                                         hide soldier
                                                                         menu: 
                                                                             "Show confusion":

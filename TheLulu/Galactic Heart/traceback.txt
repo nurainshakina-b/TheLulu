@@ -1,32 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 102, in script
-    show zander_slightsmile_chest at bottom_right
-  File "game/script.rpy", line 102, in <module>
-    show zander_slightsmile_chest at bottom_right
-NameError: name 'bottom_right' is not defined
+  File "game/script.rpy", line 288, in script
+    soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+Exception: Sayer 'soldier' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 102, in script
-    show zander_slightsmile_chest at bottom_right
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1113, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1072, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1072, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 102, in <module>
-    show zander_slightsmile_chest at bottom_right
-NameError: name 'bottom_right' is not defined
+  File "game/script.rpy", line 288, in script
+    soldier"Routine reports? You expect us to believe you just stumbled upon classified material by accident?"
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
+    Say.execute(self)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 575, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 464, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'soldier' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 13:41:08 2024
+Sun Aug  4 16:58:15 2024
