@@ -1,31 +1,29 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 41, in script
-    with fade
+  File "game/script.rpy", line 75, in script
+    menu:
   File "game/screens.rpy", line 99, in execute
-    screen single_stat():
+    screen single_stat:
   File "game/screens.rpy", line 99, in execute
-    screen single_stat():
+    screen single_stat:
   File "game/screens.rpy", line 100, in execute
-    frame:
-  File "game/screens.rpy", line 100, in keywords
-    frame:
-  File "game/screens.rpy", line 101, in <module>
-    xalign xalign
-NameError: name 'xalign' is not defined
+    text "Trust bar: [trustpoint]"
+NameError: Name 'trustpoint' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 41, in script
-    with fade
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1363, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1782, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 1549, in do_with
-    return self.interact(trans_pause=True,
+  File "game/script.rpy", line 75, in script
+    menu:
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1621, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1110, in menu
+    rv = renpy.store.menu(new_items)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1365, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2166, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2688, in interact_core
@@ -36,7 +34,6 @@ Full traceback:
     d.visit_all(callback, seen)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\displayable.py", line 431, in visit_all
     d.visit_all(callback, seen)
-  [Previous line repeated 2 more times]
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 480, in visit_all
     callback(self)
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\core.py", line 2688, in <lambda>
@@ -46,18 +43,31 @@ Full traceback:
   File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\display\screen.py", line 697, in update
     self.screen.function(**self.scope)
   File "game/screens.rpy", line 99, in execute
-    screen single_stat():
+    screen single_stat:
   File "game/screens.rpy", line 99, in execute
-    screen single_stat():
+    screen single_stat:
   File "game/screens.rpy", line 100, in execute
-    frame:
-  File "game/screens.rpy", line 100, in keywords
-    frame:
-  File "game/screens.rpy", line 101, in <module>
-    xalign xalign
-NameError: name 'xalign' is not defined
+    text "Trust bar: [trustpoint]"
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\text\text.py", line 1738, in __init__
+    self.set_text(text, scope, substitute) # type: ignore
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\text\text.py", line 1868, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 371, in substitute
+    s = interpolate(s, kwargs) # type: ignore
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 86, in interpolate
+    raise e
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 78, in interpolate
+    value = renpy.python.py_eval(code, {}, scope)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+  File "C:\Users\Nani\Downloads\renpy-8.2.3-sdk\renpy\substitutions.py", line 313, in __getitem__
+    raise NameError("Name '{}' is not defined.".format(key))
+NameError: Name 'trustpoint' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 Galactic Heart 1.0
-Sun Aug  4 11:23:10 2024
+Sun Aug  4 11:40:20 2024
